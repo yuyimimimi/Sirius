@@ -1,0 +1,12 @@
+spi_dev = {
+   spi@0 = {
+        enable    = <1>;
+        miso_pin  = <-1>;
+        mosi_pin = <5>;
+        sclk_pin = <3>;
+        spi_host  = <1>;           //spi_host_2 1 spi_host_1 0
+        trans_list_longer = <10>;  //环形缓冲区大小
+        spi_buffer_size = <1024>;
+        default_speed = <10000000>;
+  };
+};

@@ -2,7 +2,7 @@ gpio_dev = {
     gpio-controller = {
         reg = <193>;               //GPIO子系统io控制器以及子设备的设备号
         ngpios = <42>;             //单片机的gpio数量
-        compatible = "gpioexport,simple-bus";
+        compatible = "gpioexport";//预留，未使用
     };
 };
 

@@ -1,15 +1,15 @@
+
 gpio_dev = {
     gpio-controller = {
         reg = <193>;               //GPIO子系统io控制器以及子设备的设备号
         ngpios = <18>;             //单片机的gpio数量
-        compatible = "gpioexport,simple-bus";
+        compatible = "gpioexport";
     };
 };
-
 i2c_dev = {
      i2c@1 = {
         status  = "okey";
-         name = "i2c-1";
+         name = "i2c-1";      
          port = <0>;
         freq_hz = <100000>;
         sda_io = <0>;
@@ -21,7 +21,7 @@ i2c_dev = {
         retrans_times = <0>;
     };
     i2c@2 = {
-        status        = "Disable";
+         status        = "Disable";
         name          = "i2c-2";
         port          = <1>;
         freq_hz       = <100000>;
@@ -41,8 +41,8 @@ spi_dev = {
         miso_pin  = <-1>;
         mosi_pin = <5>;
         sclk_pin = <3>;
-        spi_host  = <1>;           //spi_host_2 1 spi_host_1 0
-        trans_list_longer = <10>;  //环形缓冲区大小
+        spi_host  = <1>;   //spi_host_2 1 spi_host_1 0
+        trans_list_longer = <10>; //环形缓冲区大小
         spi_buffer_size = <1024>;
         default_speed = <10000000>;
   };
@@ -62,4 +62,3 @@ spi_dev = {
     width = <128>;
     height = <64>;
 };
-

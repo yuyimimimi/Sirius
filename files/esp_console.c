@@ -1,3 +1,11 @@
+/**
+ * 
+ * This file is using to change the console.c file from esp-idf5.2.1 
+ * 
+ * 
+*/
+
+
 /*
  * SPDX-FileCopyrightText: 2016-2021 Espressif Systems (Shanghai) CO LTD
  *

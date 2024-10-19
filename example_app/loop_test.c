@@ -1,3 +1,12 @@
+/*
+ * This file is part of SiriousOS.
+ *
+ * Copyright (C) [2024] Siriusさん yu3174096586@gmail.com
+ *
+ * All rights reserved. No part of this code may be copied,
+ * modified, or distributed without the author's permission.
+ */
+
 #include "stdio.h"
 static int start_main(int argc, char *argv[])
 {
