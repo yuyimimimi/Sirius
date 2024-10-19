@@ -1,0 +1,28 @@
+#define ADD_HOOK_SUPPORT_FOR_CONSOLE
+
+//you need add it into esp_console.h
+
+
+
+char* print_char()
+{
+    return "esp";
+}
+char* (*esp_console_run_hook)(void) = &print_char;
+void esp_console_hook_run(char* (*hook)(void))
+{
+    esp_console_run_hook = hook;
+}
+
+char *line = linenoise(/*repl_com->prompt*/esp_console_run_hook());
+
+
+tcgetattr(STDIN_FILENO, &now); 
+tcsetattr(STDIN_FILENO, TCSANOW, &defaultmode);
+
+
+//you need add it into esp_console.c / esp_console.h
+//if your using Espidf5.2.1 you can use ./esp_console.c to replace esp_console.c file in espidf lib
+
+//这里是需要在esp_console.c中添加的钩子函数，用来提供一些功能。如果使用espidf5.2.1，请直接使用file目录下的esp_console.c文件替换掉espidf lib中的esp_console.c文件。
+//它不会影响使用方式，只是提供一些额外的功能。
