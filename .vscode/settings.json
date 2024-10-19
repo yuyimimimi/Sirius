@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "kinit.h": "c",
+        "init.h": "c"
+    }
+}
