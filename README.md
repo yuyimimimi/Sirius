@@ -2,6 +2,8 @@
 
 感谢你看到这个项目，如果你也想使用类似于linux的方式开发你的espidf项目。你可以试试它这是一个简单的使用espidf模仿linux的项目，只需要esp32系列单片机最小系统模组就能运行。它通过模仿linux内核的api，能让你以linux的风格开发高度模块化且灵活的espidf项目。功能展示：
 
+注:这里的0.07版本是我测试时使用的测试版本号。
+
 <img width="459" alt="Screenshot 2024-10-19 141415" src="https://github.com/user-attachments/assets/f53123e5-9ca9-4852-84e7-31ca6a307d9b">
 
 <img width="369" alt="Screenshot 2024-10-19 141553" src="https://github.com/user-attachments/assets/09d74e90-7bbd-447b-b5dc-e04b04d1f342">
