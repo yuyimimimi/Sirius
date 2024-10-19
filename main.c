@@ -26,7 +26,7 @@ module_init(__init__);
 module_init(button0_driver_init);
 module_init(i2c_2_dev_init);
 module_init(i2c_1_dev_init);
-module_init(spi_init);
+// module_init(spi_init); //you can remove module like this
 AppInit_init(add_i2cdetect_console_app);
 AppInit_init(add_pikapython_console_app);
 AppInit_init(add_clock_tets_console_app);
