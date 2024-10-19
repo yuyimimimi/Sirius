@@ -1,11 +1,13 @@
 # SiriousOS
 
-感谢你看到这个项目，如果你也想使用类似于linux的方式开发你的espidf项目。你可以试试它这是一个简单的使用espidf模仿linux的项目，只需要esp32系列单片机最小系统模组就能运行。它通过模仿linux内核的api，能让你以linux的风格开发高度模块化且灵活的espidf项目。
+感谢你看到这个项目，如果你也想使用类似于linux的方式开发你的espidf项目。你可以试试它这是一个简单的使用espidf模仿linux的项目，只需要esp32系列单片机最小系统模组就能运行。它通过模仿linux内核的api，能让你以linux的风格开发高度模块化且灵活的espidf项目。功能展示：
 
-功能展示：
 <img width="459" alt="Screenshot 2024-10-19 141415" src="https://github.com/user-attachments/assets/f53123e5-9ca9-4852-84e7-31ca6a307d9b">
+
 <img width="369" alt="Screenshot 2024-10-19 141553" src="https://github.com/user-attachments/assets/09d74e90-7bbd-447b-b5dc-e04b04d1f342">
+
 <img width="429" alt="image" src="https://github.com/user-attachments/assets/aaf68913-8898-405c-bc92-a28eb4b71368">
+
 <img width="447" alt="image" src="https://github.com/user-attachments/assets/cbb450fd-d021-4e4e-9fb7-d8f7fb11d98a">
 
 
