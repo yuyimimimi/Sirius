@@ -1,0 +1,7 @@
+&button@0 = {
+        status = "okey";
+        major     =  <240>          //device_number
+        pin       =  <9>;           // 引脚
+        pull-up   =  <1>;           // 上拉
+        pull-down =  <0>;           // 下拉
+};
