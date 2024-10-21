@@ -6,6 +6,7 @@ void start_console(void);
 
 
 void __init __init__(void);
-void app_main(){start_console();}//main不重要
+module_init(__init__);
+void app_main(){start_console();}
 
 #endif
