@@ -5,18 +5,23 @@
 本项目的宗旨是让单片机可以以尽可能贴近桌面端的方式开发单片机。我为它加入了简易的设备树支持，并提供了各种尽可能贴近linux的内核api，比如
 
 #include <linux/errno.h>
+
 #include <linux/module.h>
+
 #include <linux/printk.h>
+
 #include <linux/fs.h>
+
 #include <linux/init.h>
+
 #include <linux/uaccess.h>
-#include <linux/delay.h>
+
 #include <linux/i2c-dev.h>
+
 #include <linux/slab.h>
-#include <sys/ioctl.h>
-#include <linux/mutex.h>
+
 #include <linux/gpio.h>
-#include <string.h>
+
 #include <linux/of.h>
 //这里只是一小部分
 
