@@ -1,10 +1,32 @@
 # SiriusOS
 
-感谢你看到这个项目，如果你也想使用类似于linux的方式开发你的espidf项目。你可以试试它。
+感谢你看到这个项目，如果你也想使用类似于嵌入式linux的方式于思想开发你的espidf的单片机项目。你可以试试它。
 
-本项目的宗旨是让单片机可以以尽可能贴近桌面端的方式开发单片机。驱动的移植只需要修改设备树，使用posix接口，c语言标准库操作设备，开发软件，使用高层的抽象层进行操作。尽可能让用户不用在乎真实的硬件。提供类似于桌面端开发的体验
+本项目的宗旨是让单片机可以以尽可能贴近桌面端的方式开发单片机。我为它加入了简易的设备树支持，并提供了各种尽可能贴近linux的内核api，比如
 
-在套软件中你可以使用类似于linux的字符设备驱动，控制台软件，以模块化的方式开发它们，并将它们完全交给系统管理。之后你可以使用系统调用或者子系统api操作。它复刻了许多linux的内核api，用户api。你可以像linux一般使用它们。最好参考示例，因为它们可能和linux本身有部分不同。api本身也必定不如linux本身完全。目前只实现了最重要的部分
+#include <linux/errno.h>
+#include <linux/module.h>
+#include <linux/printk.h>
+#include <linux/fs.h>
+#include <linux/init.h>
+#include <linux/uaccess.h>
+#include <linux/delay.h>
+#include <linux/i2c-dev.h>
+#include <linux/slab.h>
+#include <sys/ioctl.h>
+#include <linux/mutex.h>
+#include <linux/gpio.h>
+#include <string.h>
+#include <linux/of.h>
+//这里只是一小部分
+
+当然，它也同时兼容espidf的api，你可也以轻松一致你原有的项目。
+
+它有一套模仿linux的驱动框架，驱动的移植基本上需要修改设备树，而不是需要频繁查看代码，修改内部写死的部分。使用标注的系统调用，posix接口，c语言标准库等作为应用开发的api，而不是使用逻辑的设备操作的各种api。你可以使用文件读写操作字符设备驱动，或者使用设备子系统api，使用更高层次的抽象层进行操作。尽可能让用户不用在乎真实的硬件。提供类似于嵌入式linux的开发的体验
+
+在套软件中你可以通过模块的框架，以模块化的方式开发控制台软件，驱动设备等，并将它们完全交给系统管理。之后你可以使用系统调用或者子系统api操作。此外它还集成了pikapython，所以你也可以使用python3语法开发功能。它可以同时支持c语言，C++与python
+
+它复刻了许多linux的内核api，用户api。你可以像linux一般使用它们。最好参考示例，因为它们可能和linux本身有部分不同。api本身也必定不如linux本身完全。目前只实现了最重要的部分
 
 如果喜欢请务必点击start
 
