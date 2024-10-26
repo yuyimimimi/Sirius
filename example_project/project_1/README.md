@@ -1,35 +1,40 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C6 | ESP32-H2 | ESP32-P4 | ESP32-S2 | ESP32-S3 |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+My name is YimingYu ,Who made this linux like system for esp series.
 
-# _Sample project_
+Thanks that you can use it for your project.
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+                                          This project is use GPL v2.0 license.
+                                          and not support any business project.
 
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
+I will teach you how to run This project on your esp series mcu.
+
+you need use espidf 5.2.1 version.
+
+first you need change esp_console.c file of espidf. new esp_console.c is in /main/file/esp_console.c 
+then add "#define ADD_HOOK_SUPPORT_FOR_CONSOLE" into esp_console.h file.
+
+make sure you have 8mb flash size.
+if lass than 8mb,you need change partition table.
+
+I just tested it on esp32-s3 and esp32-c3.
+This Templete project is default set to esp32-c3 which has 8mb flash size.
+
+if you have 8mb flash size,and using esp32-c3. open shell and press "udf.py build"
+Then  download the bin file to your esp series mcu.
+
+you can use putty or other tool To connect to console.you can see recovery mode,use shell command to 
+create file,edit file。 all file that you need is in /main/file folder.
+
+use reboot command to restart system. you can see system booting message.
 
 
+if your platfrom is not standard,you need change some code.
 
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
+open this project in espidf cmd. and type "idf.py menuconfig" to config your project.
+first set your board and flash size. 
+set: Partition Table > Partition Table set to  Custom partition table CSV
+set: Virtual file system > Maximum Number of Virtual Filesystems set to 20
 
-## Example folder contents
+if your flash size is lass than 8mb,you need change partition table.
+p_0 table is important, do not change name ,and must use littlefs. you can change size.
 
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
-
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
-
-Below is short explanation of remaining files in the project folder.
-
-```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.
+then you can use "idf.py build" to build your project.
