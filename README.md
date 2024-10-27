@@ -50,6 +50,14 @@
 
 <img width="447" alt="image" src="https://github.com/user-attachments/assets/cbb450fd-d021-4e4e-9fb7-d8f7fb11d98a">
 
+<img width="447" alt="Screenshot 2024-10-19 141830" src="https://github.com/user-attachments/assets/d09bbd99-462a-4a8a-9847-7193ffc46af9">
+
+<img width="363" alt="Screenshot 2024-10-27 000344" src="https://github.com/user-attachments/assets/79af8e31-6502-4e37-b954-b5016cc8e9de">
+
+<img width="393" alt="Screenshot 2024-10-27 000243" src="https://github.com/user-attachments/assets/1135ad48-623d-4b52-8a02-ce2eba87cecd">
+
+<img width="753" alt="Screenshot 2024-10-26 235034" src="https://github.com/user-attachments/assets/7d950a3d-f5ad-44d1-b42b-d250f2ceaa2b">
+
 
 关于使用：
 
