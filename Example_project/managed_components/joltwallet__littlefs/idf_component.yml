@@ -1,0 +1,10 @@
+dependencies:
+  idf:
+    version: '>=4.3'
+description: LittleFS is a small fail-safe filesystem for micro-controllers.
+repository: git://github.com/joltwallet/esp_littlefs.git
+repository_info:
+  commit_sha: be2b096e5659cc98b35021cee33b64a561b534f4
+  path: .
+url: https://github.com/joltwallet/esp_littlefs
+version: 1.14.5
