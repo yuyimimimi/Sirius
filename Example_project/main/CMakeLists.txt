@@ -22,7 +22,6 @@ file(GLOB_RECURSE system_memory_management ./kernel/mm/*.c)
 
 
 file(GLOB_RECURSE COMMANDS
-    ./toos/shell/src/hello_APP/*.c
     ./toos/shell/src/cat/*.c
     ./toos/shell/src/echo/*.c
     ./toos/shell/src/reboot/*.c
