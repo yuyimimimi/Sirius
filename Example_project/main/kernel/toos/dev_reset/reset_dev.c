@@ -26,7 +26,7 @@ int reset_dev(int argc, char *argv[])
  DTS_PATH       = /etc/boot/dev.dts\n\
 [system_data]\n\
  username       = user\n\
- sysname        = SiriuOS\n\
+ sysname        = Sirius\n\
  HOME           = /etc\n\
  system_data    = /etc/system/data\n\
  system_home    = /etc/system\n\

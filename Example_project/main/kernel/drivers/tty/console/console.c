@@ -54,7 +54,7 @@ void console_init_recovery_mode(void *arg)
     printf("\n\n");
     //printf("\033[2J\033[H");
     printf("\033[35m\n\n"); 
-    printf("%60s","SiriuOS 9/09/2024\n");
+    printf("%60s","Sirius 9/09/2024\n");
     printf("%60s","Recovery boot mode\n");
     printf("%60s","GitHub: https://github.com/yuyimimimi/Sirius\n\n");
     printf("\033[35m"); 

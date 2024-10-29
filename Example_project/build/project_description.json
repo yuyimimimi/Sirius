@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "lunar_os_0.04.0",
-    "project_version":    "b283f1e-dirty",
+    "project_version":    "0a2901c-dirty",
     "project_path":       "C:/Users/31740/Documents/GitHub/SiriousOS/Example_project",
     "idf_path":           "C:/Espressif/frameworks/esp-idf-v5.2.1",
     "build_dir":          "C:/Users/31740/Documents/GitHub/SiriousOS/Example_project/build",
