@@ -13,7 +13,6 @@ typedef struct {
     int height;           // 窗口的高度
     __u8 IsVisible;       // 窗口是否可见
     char *Title;          // 窗口标题
-
 } WindowAttributes;
 
 typedef struct {

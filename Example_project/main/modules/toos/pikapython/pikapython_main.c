@@ -192,7 +192,7 @@ static int pikapython_main(int argc, char **argv)
         }
     }
 
-    input_data.path1 = getenv_("PYTHON_HOME");            //环境变量路径
+    input_data.path1 = getenv_("PYTHON_HOME");                  //环境变量路径
 
 
 
