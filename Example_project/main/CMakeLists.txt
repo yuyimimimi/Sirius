@@ -109,8 +109,6 @@ idf_component_register(
                  "modules/toos/pikapython/pikascript-api"
                  "modules/toos/pikapython/pikascript-core"
                  "modules/toos/pikapython/pikascript-lib/PikaStdLib"     
-
-                 "modules/devices/st7789"
                  
                  "libs/lvgl"
                  "libs" 
