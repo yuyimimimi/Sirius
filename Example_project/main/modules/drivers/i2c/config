@@ -1,28 +1,28 @@
 i2c_dev = {
-    i2c@1 = {
-       name = "i2c-1";
-       enable = <1>;
-       port = <0>;
-       freq_hz = <100000>;
-       sda_io = <0>;
-       scl_io = <1>;
-       rx_buf_enable = <0>;
-       tx_buf_enable = <0>;
-       buffer_size = <4096>;
-       timeout_ms = <200>;
-       retrans_times = <0>;
-   };
-   i2c@2 = {
-       name = "i2c-2";
-       enable = <0>;
-       port = <1>;
-       freq_hz = <100000>;
-       sda_io = <0>;
-       scl_io = <1>;
-       rx_buf_enable = <0>;
-       tx_buf_enable = <0>;
-       buffer_size = <4096>;
-       timeout_ms = <200>;
-       retrans_times = <0>;
-   };
+     i2c@1 = {
+        name = "i2c-1";
+        enable = <1>;
+        port = <0>;
+        freq_hz = <100000>;
+        sda_io = <0>;
+        scl_io = <1>;
+        rx_buf_enable = <0>;
+        tx_buf_enable = <0>;
+        buffer_size = <4096>;
+        timeout_ms = <200>;
+        retrans_times = <0>;
+    };
+    i2c@2 = {
+        name = "i2c-2";
+        enable = <0>;
+        port = <1>;
+        freq_hz = <100000>;
+        sda_io = <0>;
+        scl_io = <1>;
+        rx_buf_enable = <0>;
+        tx_buf_enable = <0>;
+        buffer_size = <4096>;
+        timeout_ms = <200>;
+        retrans_times = <0>;
+    };
 };
