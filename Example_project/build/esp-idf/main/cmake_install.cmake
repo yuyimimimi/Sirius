@@ -1,4 +1,4 @@
-# Install script for directory: D:/esp/os/Sirius_0.1.2/main
+# Install script for directory: C:/Users/31740/Documents/GitHub/SiriousOS/Example_project/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

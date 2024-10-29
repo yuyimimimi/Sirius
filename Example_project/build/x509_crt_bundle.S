@@ -1,4 +1,4 @@
-/* * Data converted from D:/esp/os/Sirius_0.1.2/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from C:/Users/31740/Documents/GitHub/SiriousOS/Example_project/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

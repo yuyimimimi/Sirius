@@ -1,4 +1,4 @@
-# Install script for directory: D:/esp/os/Sirius_0.1.2/managed_components/joltwallet__littlefs
+# Install script for directory: C:/Users/31740/Documents/GitHub/SiriousOS/Example_project/managed_components/joltwallet__littlefs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

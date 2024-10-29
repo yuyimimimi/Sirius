@@ -20,7 +20,7 @@ file(GLOB_RECURSE DTS                      ./kernel/toos/dts/*.c)               
 file(GLOB_RECURSE system_memory_management ./kernel/mm/*.c)
 
 
-# 命令行工具源文件
+
 file(GLOB_RECURSE COMMANDS
     ./toos/shell/src/hello_APP/*.c
     ./toos/shell/src/cat/*.c
@@ -42,8 +42,7 @@ file(GLOB_RECURSE COMMANDS
     ./toos/shell/src/kill/*.c
 )
 
-
-
+file(GLOB_RECURSE RSTDEV                    ./toos/dev_reset/*.c)       
 file(GLOB_RECURSE gpio_subsystem           ./kernel/drivers/gpio/*.c)              
 file(GLOB_RECURSE display_farmerwork       ./kernel/drivers/video/src/*.c)         
 file(GLOB_RECURSE ESP_CONSOLE              ./kernel/drivers/tty/console/*.c)
@@ -61,12 +60,12 @@ file(GLOB_RECURSE ESP_SPIFFS             ./kernel/toos/arch/espidf/esp_spi_spiff
 file(GLOB_RECURSE ESP_LITTLEFS           ./kernel/toos/arch/espidf/esp_spi_littlefs/*.c)
 file(GLOB_RECURSE ESP_FS                 ./kernel/toos/arch/esidf/*.c)
 
-file(GLOB_RECURSE Stop_watchdog          ./modules/watchdog/*.c)
 
 file (   GLOB_RECURSE PIKA_PYTHON        
         ./modules/toos/pikapython/pikascript-api/*.c
         ./modules/toos/pikapython/pikascript-core/*.c
         ./modules/toos/pikapython/pikascript-lib/PikaStdLib/*.c )
+
 
 file(   GLOB_RECURSE LVGL     
         ./libs/src/*.c
@@ -95,6 +94,7 @@ idf_component_register(
                 ${ENV}
                 ${SCRIPTS_STORE}
                 ${DTS}
+                ${RSTDEV}
     INCLUDE_DIRS 
                  #内核api目录
                  "kernel/include"                            #内核接口目录 
