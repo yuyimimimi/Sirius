@@ -17,7 +17,6 @@
     int  rm_cmd(int argc, char **argv);
     int  rmdir_cmd(int argc, char **argv);
     int  free_cmd(int argv,char **argc);
-    int  helloworld(int argc, char *argv[]);
     int  kilo_main(int argc, char **argv); 
     int  reset_dev(int argc, char **argv);
     int touch_cmd(int argc, char *argv[]);
@@ -28,7 +27,6 @@
 
    void __init shell_cmd_init(void)
    {
-    add_console_app("helloworld",helloworld,"print 'hello world'");
     add_console_app("echo",echo_main,"Write arguments to the standard output");
     add_console_app("cat",cat_main,"print the contents of a file to the standard output");
     add_console_app("reboot",reboot_main,"reboot the system");

@@ -20,34 +20,6 @@
  * 
 */
 
-typedef struct {
-    uint8_t r; // 红色通道
-    uint8_t g; // 绿色通道
-    uint8_t b; // 蓝色通道
-    uint8_t a; // Alpha 通道
-} RGBA8888;
-
-typedef struct {
-    uint8_t c; // 青色通道
-    uint8_t m; // 品红通道
-    uint8_t y; // 黄色通道
-    uint8_t k; // 黑色通道
-} CMYK;
-
-typedef struct {
-    uint8_t r;  // 红色通道
-    uint8_t g;  // 绿色通道
-    uint8_t b;  // 蓝色通道
-} RGB888;
-
-typedef struct {
-    uint16_t r;  // 红色通道
-    uint16_t g;  // 绿色通道
-    uint16_t b;  // 蓝色通道
-} RGB565;
-
-
-
 struct object_data {
     int status;           // 设备状态
     int *width;            // 显示设备宽度

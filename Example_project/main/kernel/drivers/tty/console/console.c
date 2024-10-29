@@ -56,7 +56,7 @@ void console_init_recovery_mode(void *arg)
     printf("\033[35m\n\n"); 
     printf("%60s","SiriuOS 9/09/2024\n");
     printf("%60s","Recovery boot mode\n");
-    printf("%60s","GitHub: https://github.com/yuyimimimi/SiriusOS\n\n");
+    printf("%60s","GitHub: https://github.com/yuyimimimi/Sirius\n\n");
     printf("\033[35m"); 
     printf("\033[34m"); 
     printf("you can use 'reboot' command to make system next boot in normal mode\n");
@@ -172,7 +172,7 @@ static void console_init(void *arg){
     }
 
     printf("%60s","09/09/2024\n");
-    printf("%60s","GitHub: https://github.com/yuyimimimi/SiriusOS\n");
+    printf("%60s","GitHub: https://github.com/yuyimimimi/Sirius\n");
     file_path = getenv_("shell_home");
     esp_console_repl_t *repl = NULL;
     esp_console_repl_config_t repl_config = ESP_CONSOLE_REPL_CONFIG_DEFAULT();

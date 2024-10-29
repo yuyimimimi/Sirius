@@ -158,7 +158,8 @@
       "stdint.h": "c",
       "xlib.h": "c",
       "display_window.h": "c",
-      "sirgui.h": "c"
+      "sirgui.h": "c",
+      "app_install.h": "c"
     },
     "C_Cpp.errorSquiggles": "enabled"
   }
