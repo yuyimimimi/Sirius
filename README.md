@@ -15,7 +15,7 @@
 
 如果喜欢请务必点击start
 
-python语言的支持是通过pikapython项目实现的，使用python3语法。你要是对这个项目有兴趣请务必转到它们的网站:[PikaPython 开发文档 — PikaPython 0.1 documentation](https://pikapython.com/doc/) 这是个很有趣的项目。而且使用标准的python3语法，拥有丰富的组件，良好的可移植性。如果你需要在你的项目中结核性使用python和c语言。请务选择它。
+python语言的支持是通过pikapython项目实现的。你要是对这个项目有兴趣请务必转到它们的网站:[PikaPython 开发文档 — PikaPython 0.1 documentation](https://pikapython.com/doc/) 这是个很有趣的项目。而且使用标准的python3语法，拥有丰富的组件，良好的可移植性。如果你需要在你的项目中结核性使用python和c语言。请务选择它。
 
 关于使用：
 
