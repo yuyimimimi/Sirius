@@ -43,7 +43,7 @@ then you can use "idf.py build" to build your project.
 
 注意，要使用espidf5.2.1。其它版本我没有测试过。
 
-示例项目是基于立创实战派开发板的，采用esp32C3 8mbflash .可以直接编译烧录，如果使用其它esp32需要进行一些跳转。
+示例项目是基于立创实战派开发板的，采用esp32C3 8mbflash .可以直接编译烧录，如果使用其它esp32需要进行一些调整。
 首先需要在espidf中选择芯片型号。由于espidf修改芯片后kconfig会重置，所以需要重新配置。
 
  
