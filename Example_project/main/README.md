@@ -3,8 +3,7 @@ My name is YimingYu ,Who made this linux like system for esp series.
 Thanks that you can use it for your project.
 
                                           This project is use GPL v2.0 license.
-                                          and not support any business project.
-
+                                          
 I will teach you how to run This project on your esp series mcu.
 
 you need use espidf 5.2.1 version.
