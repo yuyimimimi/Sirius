@@ -15,30 +15,11 @@
 
 如果喜欢请务必点击start
 
-它基于espidf模仿了linux的行为，只需要esp32系列任何单片机的最小系统模组就能运行，不需要任何外围硬件。它通过实现linux内核的api，能让你以linux的风格开发高度模块化且灵活的espidf项目。功能展示：
-注:这里的0.07版本是我测试时使用的测试版本号。
-
-<img width="459" alt="Screenshot 2024-10-19 141415" src="https://github.com/user-attachments/assets/f53123e5-9ca9-4852-84e7-31ca6a307d9b">
-
-<img width="369" alt="Screenshot 2024-10-19 141553" src="https://github.com/user-attachments/assets/09d74e90-7bbd-447b-b5dc-e04b04d1f342">
-
-<img width="429" alt="image" src="https://github.com/user-attachments/assets/aaf68913-8898-405c-bc92-a28eb4b71368">
-
-<img width="447" alt="Screenshot 2024-10-19 141830" src="https://github.com/user-attachments/assets/d09bbd99-462a-4a8a-9847-7193ffc46af9">
-
-<img width="363" alt="Screenshot 2024-10-27 000344" src="https://github.com/user-attachments/assets/79af8e31-6502-4e37-b954-b5016cc8e9de">
-
-<img width="393" alt="Screenshot 2024-10-27 000243" src="https://github.com/user-attachments/assets/1135ad48-623d-4b52-8a02-ce2eba87cecd">
-
-<img width="753" alt="Screenshot 2024-10-26 235034" src="https://github.com/user-attachments/assets/7d950a3d-f5ad-44d1-b42b-d250f2ceaa2b">
-
-
 关于使用：
 
+1.它可以使用字符设备驱动将驱动设备映射为文件系统的结点让你可以以文件读写的方式访问设备驱动。并且使用简单的设备树管理设备差异。使用module_init宏作为模块面向内核的唯一接口。并尽可能相似的方式模仿了linux的内核模块api。部分api由于平台问题性能问题进行了妥协。请注意差异
 
-1.它可以使用字符设备驱动将驱动设备映射为文件系统的结点让你可以以文件读写的方式访问设备驱动。并且使用简单的设备树管理设备差异。使用module_init宏作为模块面向内核的唯一接口。并尽可能相似的方式模仿了linux的内核模块api。
-
-您可以查看./example_modules/drivers目录查看驱动程序模块的开发框架。以及简易设备树的节点的结构。main.c中展示模块的注册方式。你可以通过删除或添加初始化宏实现模块的添加。
+您可以查看./example_modules/drivers目录查看驱动程序模块的开发框架。以及简易设备树的的结构。main.c中展示模块的注册方式。你可以通过删除或添加初始化宏实现模块的添加。
 
 2.它提供了linux风格的命令行工具，你可以使用基础的shell指令进行文件管理，文本编辑，脚本执行，控制台程序的调用。使用help可以查看使用方式。
 AppInit_init可用于console程序模块的添加。你可以查看./example_app查看控制台程序模块的框架并在main.c中查看注册方式
