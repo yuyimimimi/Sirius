@@ -16,6 +16,7 @@ module_init(i2c_1_dev_init);
 
 int __init st7789_driver_init(void);
 module_init(st7789_driver_init);
+
 void add_i2cdetect_console_app(void);
 AppInit_init(add_i2cdetect_console_app);
 
