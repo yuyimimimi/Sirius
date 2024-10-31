@@ -13,6 +13,7 @@
 #include <stdarg.h> 
 #include <linux/vfs/vfs.h>
 #include "env.h"
+#include <kernelconfig>
 
 static char *console_path;
 static int home_start = 1;
@@ -25,8 +26,7 @@ void esp_console_hook_run(char *(*func)());
 
 
 void init_normal_console(void)
-{
-    
+{    
     char * home = getenv_("HOME");
     if(home == NULL){
         home = "/etc";
@@ -56,7 +56,7 @@ void console_init_recovery_mode(void *arg)
     printf("\033[35m\n\n"); 
     printf("%60s","Sirius 9/09/2024\n");
     printf("%60s","Recovery boot mode\n");
-    printf("%60s","GitHub: https://github.com/yuyimimimi/Sirius\n\n");
+    printf("%60s","Please gave me a star on GitHub: https://github.com/yuyimimimi/Sirius\n\n");
     printf("\033[35m"); 
     printf("\033[34m"); 
     printf("you can use 'reboot' command to make system next boot in normal mode\n");
@@ -166,8 +166,7 @@ static void console_init(void *arg){
         }
         free(file_path);
     }
-    else
-    {
+    else{
         setenv_("SYSTEM_VERSION","/please/set/in/there",1);
     }
 
@@ -178,7 +177,7 @@ static void console_init(void *arg){
     esp_console_repl_config_t repl_config = ESP_CONSOLE_REPL_CONFIG_DEFAULT();
     repl_config.prompt =" ";  
     esp_console_dev_uart_config_t hw_config = ESP_CONSOLE_DEV_UART_CONFIG_DEFAULT();
-    repl_config.max_cmdline_length = 1024*16;
+    repl_config.max_cmdline_length = console_mem ;
     if(file_path != NULL)
     {   
         repl_config.history_save_path = file_path;  

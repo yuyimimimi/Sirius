@@ -104,11 +104,11 @@ idf_component_register(
                  "kernel/drivers/include"
                  "kernel/init"
                  "kernel/arch/rsicv/include"  
-                 
+                 "kernel/config"
                  "modules/toos/pikapython/pikascript-api"
                  "modules/toos/pikapython/pikascript-core"
-                 "modules/toos/pikapython/pikascript-lib/PikaStdLib"     
-                 
+                 "modules/toos/pikapython/pikascript-lib/PikaStdLib"   
+
                  "libs/lvgl"
                  "libs" 
 )

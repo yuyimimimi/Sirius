@@ -24,5 +24,6 @@ tcsetattr(STDIN_FILENO, TCSANOW, &defaultmode);
 //you need add it into esp_console.c / esp_console.h
 //if your using Espidf5.2.1 you can use ./esp_console.c to replace esp_console.c file in espidf lib
 
-//这里是需要在esp_console.c中添加的钩子函数，用来提供一些功能。如果使用espidf5.2.1，请直接使用file目录下的esp_console.c文件替换掉espidf lib中的esp_console.c文件。
+//这里是需要在esp_console.c中添加的钩子函数，用来提供一些功能。
 //它不会影响使用方式，只是提供一些额外的功能。
+//如果你不是使用espidf5.2.1版本，请自行移植。

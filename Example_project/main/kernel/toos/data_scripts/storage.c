@@ -2,8 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <kernelconfig>
 
-static int parser_max_menory_use = 4 * 1024;      //最大内存使用量,动态占用,用完会自动释放
 
 //path_like = "/etc/sys_data.dat";
 static int retry_times = 5;
@@ -142,7 +142,11 @@ const char *get_resolve_item(const char *env_path)           //提取第一个�
 }
 const char *replace_item(const char *path ,const char *env_path) //原始项目 、 宏定义                         //本身安全，返回需释放
 {
-    char *new_path = malloc(strlen(path) + strlen(env_path) + 1);    
+    char *new_path = malloc(strlen(path) + strlen(env_path) + 1);
+    if(new_path == NULL)
+    {
+        return NULL;
+    }
 
     int i = 0;
     int k = 0;
@@ -347,10 +351,11 @@ char *getitem(const char *path,char *name)                   // 本身安全，�
         return getpath;
     }
     swap_get_path = get_item_from_file(name,resolve_path);
+    free(resolve_path);    
     char *path_ = replace_item(getpath, swap_get_path);
     free(swap_get_path);
     free(getpath);
-    free(resolve_path);
+
 
     for (int i = strlen(path_) - 1; i >= 0; i--) {
         if (path_[i] == ' ' || path_[i] == '\n') {

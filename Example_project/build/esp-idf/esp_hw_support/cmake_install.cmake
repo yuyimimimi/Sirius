@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/31740/Documents/GitHub/SiriousOS/Example_project/build/esp-idf/esp_hw_support/port/esp32c3/cmake_install.cmake")
+  include("C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/esp-idf/esp_hw_support/port/esp32c3/cmake_install.cmake")
 endif()
 
