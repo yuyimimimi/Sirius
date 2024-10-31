@@ -63,9 +63,11 @@ AppInit_init可用于console程序模块的添加。你可以查看./example_mod
  
  5.项目可能存在一些bug，请理解.它还不是很完善
 
-有任何疑问可以访问我的邮箱
+有任何疑问、希望提交代码可以访问我的邮箱
 
 yu3174096586@gmail.com 
+b站:
+Siriusさん
 
 
 
