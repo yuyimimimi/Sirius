@@ -4,3 +4,5 @@
  phy_init,   data,      phy,        0xf000 ,    0x1000, ,
  ota_0,      app,       ota_0,             ,    1M,     ,
  p_0,        data,      littlefs,          ,    2M,     ,
+
+#如果你想要使用这个分区表，请删除后方标识

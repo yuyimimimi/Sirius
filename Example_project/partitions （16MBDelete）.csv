@@ -5,3 +5,5 @@
  ota_0,      app,       ota_0,             ,    1M,     ,
  p_0,        data,      littlefs,          ,    4M,     ,
  p_2,        data,      littlefs,          ,    10M,     ,
+
+#如果你想要使用这个分区表，请删除后方标识
