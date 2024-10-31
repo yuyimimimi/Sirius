@@ -4,7 +4,7 @@
 
 示例项目中有移植教程，直接基于示例项目开发就行
 
-
+如果喜欢请务必点击start
 
 
 
@@ -21,7 +21,6 @@
 
 它复刻了一些linux的内核api，用户api。你可以像linux一般使用它们。最好参考示例，因为它们可能和linux本身有部分不同。api本身也必定不如linux本身完整。目前只实现了最重要的部分
 
-如果喜欢请务必点击start
 
 python语言的支持是通过pikapython项目实现的。你要是对这个项目有兴趣请务必转到它们的网站:[PikaPython 开发文档 — PikaPython 0.1 documentation](https://pikapython.com/doc/) 这是个很有趣的项目。而且使用标准的python3语法，拥有丰富的组件，良好的可移植性。如果你需要在你的项目中结核性使用python和c语言。请务选择它。
 
@@ -47,7 +46,6 @@ AppInit_init可用于console程序模块的添加。你可以查看./example_mod
 4.由于这是初版工程，许多方面还是比较粗糙，功能不是很完善，请各位理解。
 
 5.示例工程的main目录下有中文英文版的移植指南。它的移植很简单
-
 
 
 
