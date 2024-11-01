@@ -4,11 +4,7 @@
 
 int test_main(int argc, char const *argv[])
 {
-    if(argc<2)
-    {
-        return 0;
-    }
-    system(argv[1]);
+    printf("just for test!\n");
     return 0;
 }
 
