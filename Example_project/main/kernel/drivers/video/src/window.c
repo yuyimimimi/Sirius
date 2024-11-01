@@ -11,9 +11,7 @@ typedef struct Windows_list {
     struct Windows_list *next;
 }Windows_list;
 
-
 Windows_list *head_list = NULL;
-
 
 Window* CreateWindow(int x, int y, int width, int height, int color_format, __u32 backgroundColor,  __u8 priority, const char* title)
 {
