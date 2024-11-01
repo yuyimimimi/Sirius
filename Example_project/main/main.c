@@ -4,7 +4,7 @@
 #include <linux/module.h>
 
 
-//运行的程序堆栈大小不要超过16kb，如果有更大内存需求
+//运行的程序堆栈大小不要超过16kb，如果有更大内存需求可以去/kernel/config中调节
 
 int __init button0_driver_init(void);
 module_init(button0_driver_init);
