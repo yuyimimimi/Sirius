@@ -1,6 +1,6 @@
 /**
  * 
- * 在这里你可以通过注释或修改宏实现对分区的挂载，必须对应修改分区表文件partition_table.csv
+ * 在这里你可以通过注释或修改宏实现对分区的挂载，必须对应分区表文件partitions.csv
  * 
  **/
 
@@ -44,7 +44,6 @@
    // #define spiffs_mount_path_7      "/var"
    // #define spiffs_Partition_name_7  "var"
 #endif
-
 
 
 #define esp_littlefs_fs 1     //LittleFS  
