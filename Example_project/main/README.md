@@ -78,3 +78,8 @@ cd /etc/boot
 
 /kernel/config 目录下有一些内核配置选项，可以根据自己的需求进行修改,它们是静态配置，类似于kernel.config文件。
 
+关于功能:
+about function
+
+1.如果使用system()没有反应，请前往/espidf/components/newlib/syscalls.c 注释掉system()函数。或者改为int __attribute__((weak)) system(const char *command) { errno = ENOSYS; return -1; }
+

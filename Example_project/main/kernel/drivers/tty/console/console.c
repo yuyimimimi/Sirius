@@ -260,4 +260,3 @@ char *get_console_file_prompt(char *file_path)
     }
 }
 
-

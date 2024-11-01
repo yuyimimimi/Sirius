@@ -9,17 +9,6 @@ file(GLOB_RECURSE DriverS
          ./modules/drivers/i2c/*.c
          )
 
-#系统初始化文件
-file(GLOB_RECURSE init                   ./kernel/init/*.c)
-
-
-file(GLOB_RECURSE GPIO_HAL                 ./kernel/toos/arch/espidf/drivers/gpio/*.c)
-file(GLOB_RECURSE ENV                      ./kernel/toos/env/*.c)                     #环境变量管理
-file(GLOB_RECURSE SCRIPTS_STORE            ./kernel/toos/data_scripts/*.sh)           #脚本文件处理目录，用于负责键值对文件增删改查
-file(GLOB_RECURSE DTS                      ./kernel/toos/dts/*.c)                     #简易的设备树解析器
-file(GLOB_RECURSE system_memory_management ./kernel/mm/*.c)
-
-
 
 file(GLOB_RECURSE COMMANDS
     ./toos/shell/src/cat/*.c
@@ -41,7 +30,8 @@ file(GLOB_RECURSE COMMANDS
     ./toos/shell/src/kill/*.c
 )
 
-file(GLOB_RECURSE RSTDEV                    ./toos/dev_reset/*.c)       
+
+file(GLOB_RECURSE RSTDEV                   ./toos/dev_reset/*.c)       
 file(GLOB_RECURSE gpio_subsystem           ./kernel/drivers/gpio/*.c)              
 file(GLOB_RECURSE display_farmerwork       ./kernel/drivers/video/src/*.c)         
 file(GLOB_RECURSE ESP_CONSOLE              ./kernel/drivers/tty/console/*.c)
@@ -52,6 +42,16 @@ file(GLOB_RECURSE FS_FAT                   ./kernel/fs/Fatfs/*.c)
 file(GLOB_RECURSE FS_VFS_SRC               ./kernel/fs/vfs/*.c)                    
 file(GLOB_RECURSE FS_VFS                   ./kernel/fs/*.c) 
 
+
+#系统初始化文件
+file(GLOB_RECURSE init                   ./kernel/init/*.c)
+
+file(GLOB_RECURSE GPIO_HAL                 ./kernel/toos/arch/espidf/drivers/gpio/*.c)
+file(GLOB_RECURSE ENV                      ./kernel/toos/env/*.c)                     #环境变量管理
+file(GLOB_RECURSE SCRIPTS_STORE            ./kernel/toos/data_scripts/*.sh)           #脚本文件处理目录，用于负责键值对文件增删改查
+file(GLOB_RECURSE DTS                      ./kernel/toos/dts/*.c)                     #简易的设备树解析器
+file(GLOB_RECURSE system_memory_management ./kernel/mm/*.c)
+file(GLOB_RECURSE posix                    ./kernel/system/posix/*.c)                  #Posix系统接口
 
 #ESP-IDF组件
 file(GLOB_RECURSE ESP_SPI_FAT            ./kernel/toos/arch/espidf/esp_spi_fat/*.c)
@@ -75,7 +75,8 @@ file(   GLOB_RECURSE LVGL
 
 
 idf_component_register(    
-        SRCS    ${SOURCES} 
+        SRCS    
+                ${SOURCES} 
                 ${gpio_subsystem}
                 ${FS_FAT}
                 ${FS_VFS}
@@ -94,6 +95,12 @@ idf_component_register(
                 ${SCRIPTS_STORE}
                 ${DTS}
                 ${RSTDEV}
+                ${DriverS}
+                ${posix}
+                ${PIKA_PYTHON}
+
+
+
     INCLUDE_DIRS 
                  #内核api目录
                  "kernel/include"                            #内核接口目录 
@@ -110,7 +117,8 @@ idf_component_register(
                  "modules/toos/pikapython/pikascript-lib/PikaStdLib"   
 
                  "libs/lvgl"
-                 "libs" 
+                 "libs"
+
 )
 
 

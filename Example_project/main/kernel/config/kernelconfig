@@ -4,6 +4,6 @@
 
 #define parser_max_menory_use  4*1024       //文本解释器最大占用内存，单位字节，如果你得设备树文件过大导致程序崩溃可以调高这个值。目前还有点内存碎片问题，未来会解决。目前不建议太大
 
-#define boot_partition_name "p_0"           //系统分区名称,会自动挂为/etc 必须是littlefs格式的分区
+#define boot_partition_name "p_0"           //系统分区名称,会自动挂为/etc 必须是littlefs格式的分区,因为littlesfs带有掉电保护功能而且支持层次化目录结构。
 
 

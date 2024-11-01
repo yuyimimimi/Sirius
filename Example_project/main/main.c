@@ -30,7 +30,8 @@ AppInit_init(add_i2cdetect_console_app);
 void add_pikapython_console_app(void);
 AppInit_init(add_pikapython_console_app);
 
-
+void install_test();
+AppInit_init(install_test);
 
 
 
