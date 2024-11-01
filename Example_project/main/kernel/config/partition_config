@@ -4,7 +4,7 @@
  * 
  **/
 
-#define flash_fs 1      //FATFS  
+#define flash_fs 0      //FATFS_SUPPORT  
 #if flash_fs == 1
    // #define fatfs_mount_path_0       "/home"
    // #define fatfs_Partition_name_0   "p_1"
@@ -24,7 +24,7 @@
    // #define fatfs_Partition_name_7   "factory_nvs"
 #endif
 
-#define spiffs_fs 1     //SPIFFS  
+#define spiffs_fs 0     //SPIFFS_SUPPORT                                    
 #if spiffs_fs == 1
    // #define spiffs_mount_path_0       "/dev"
    // #define spiffs_Partition_name_0   "p_0"
@@ -44,8 +44,7 @@
    // #define spiffs_Partition_name_7  "var"
 #endif
 
-
-#define esp_littlefs_fs 1     //LittleFS  
+#define esp_littlefs_fs 1     //LittleFS_SUPPORT                                   
 #if esp_littlefs_fs == 1
    // #define esp_littlefs_mount_path_0         "/etc"
    // #define esp_littlefs_Partition_name_0     "p_0"
