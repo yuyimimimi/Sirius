@@ -4,7 +4,8 @@
 #include <linux/module.h>
 
 
-//运行的程序堆栈大小不要超过16kb，如果有更大内存需求可以去/kernel/config中调节
+//运行的程序堆栈大小不要超过16kb，如果有更大内存需求请进入/kernel/config/中调整或者另外创建独立的任务
+
 
 int __init button0_driver_init(void);
 module_init(button0_driver_init);
@@ -60,4 +61,6 @@ AppInit_init(add_pikapython_console_app);
 // add_pikapython_console_app();
 // start_console();
 // }
+
+
 

@@ -131,6 +131,8 @@ void draw_display(int Offset_X, int Offset_Y, int width, int height,uint32_t *bu
 }
 
 
+
+
 void draw_display_565(int Offset_X, int Offset_Y, int width, int height,uint16_t *buffer) 
 {   
     display_list_t *list = get_root_node();
