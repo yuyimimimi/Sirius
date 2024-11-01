@@ -12,9 +12,11 @@
 #include <freertos/task.h>
 #include "freertos/FreeRTOS.h"
 #include "env.h"
+#include <kernelconfig>
 
 
 int  mount_start_partition(char *paartition_name);
+
 int __init int_display_system(); 
 void __init init_drivers(void);
 static int get_bootdata(){
@@ -106,7 +108,7 @@ static void __init recovery_mode_init(void){
 void __init system_boot(void) {
     _set_memory_size(esp_get_minimum_free_heap_size());
     printf("Kernel Starting...\n");
-    mount_start_partition("p_0");        // 挂载启动分区必须为little_fs分区
+    mount_start_partition(boot_partition_name);        // 挂载启动分区必须为little_fs分区
     if(get_boot_mode() == 1){
         Addition_bootdata();             // 增加启动次数,使用reboot指令可以重置启动次数。任何非正常关机都会导致计数增加，超过阈值强制进入recovery模式。
         normal_mode_init();        

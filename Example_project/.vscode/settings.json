@@ -160,7 +160,8 @@
       "display_window.h": "c",
       "sirgui.h": "c",
       "app_install.h": "c",
-      "kernelconfig": "c"
+      "kernelconfig": "c",
+      "partition_config": "c"
     },
     "C_Cpp.errorSquiggles": "enabled"
   }

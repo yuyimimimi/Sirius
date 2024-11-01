@@ -48,10 +48,12 @@ static size_t rgb888_to_rgb565(uint32_t *rgb888,uint32_t size,void *dest_buffer)
 
 static size_t rgb565_to_rgb888(uint16_t *rgb565,uint32_t size,void *dest_buffer)
 {
+    int block_size = 16;                           //分块大小
+
     uint32_t *rgb888_buffer =(uint32_t*)dest_buffer;
-    int block_size = 16;
+    int times = size/block_size;
     int base = 0;
-    for(int i = 0; i < size; i++)
+    for(int i = 0; i < times; i++)
     {
       base = block_size*i;
       for(int j = 0; j < block_size; j++)
@@ -60,12 +62,10 @@ static size_t rgb565_to_rgb888(uint16_t *rgb565,uint32_t size,void *dest_buffer)
         base++;
       }
     }
-    int less = size%block_size;
-    for(int i = 0; i < less; i++)
+    base = block_size*times;
+    for(int i = 0; i < size%block_size; i++)
     {
-      
+      rgb888_buffer[base+i] = ((rgb565[base+i] & 0xF800) << 8)  |   ((rgb565[base+i] & 0x07E0) << 5)  |  ((rgb565[base+i] & 0x001F) << 3);
     }
-
-
     return size;
 }
