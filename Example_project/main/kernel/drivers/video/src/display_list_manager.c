@@ -92,10 +92,6 @@ int display_object_add(struct display_device *obj)
     printk(KERN_INFO "display_object_add: display device %s is added successfully\n", obj->name);
     create_vfs_node_file("/dev/video/%s","device",0x00ff00ff,obj->name);
 
-    
-
-
-
     return 0;
 }
 
