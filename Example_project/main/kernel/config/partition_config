@@ -4,10 +4,10 @@
  * 
  **/
 
-#define flash_fs 0      //FATFS_SUPPORT  
+#define flash_fs 1      //FATFS_SUPPORT  
 #if flash_fs == 1
-   // #define fatfs_mount_path_0       "/home"
-   // #define fatfs_Partition_name_0   "p_1"
+   #define fatfs_mount_path_0         "/test"
+   #define fatfs_Partition_name_0      "p_1"
    // #define fatfs_mount_path_1       "/etc"
    // #define fatfs_Partition_name_1   "p_2"
    // #define fatfs_mount_path_2       "/usr"

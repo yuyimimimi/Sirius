@@ -77,3 +77,4 @@ cd /etc/boot
 
 
 /kernel/config 目录下有一些内核配置选项，可以根据自己的需求进行修改,它们是静态配置，类似于kernel.config文件。
+
