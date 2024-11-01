@@ -38,6 +38,9 @@ p_0 table is important, do not change name ,and must use littlefs. you can chang
 
 then you can use "idf.py build" to build your project.
 
+path /kernel/config is kernel config file. you can modify it according to your need.
+
+
 中文版移植指南:
 
 注意，要使用espidf5.2.1。其它版本我没有测试过。
@@ -73,4 +76,4 @@ cd /etc/boot
 移植就完毕了
 
 
-
+/kernel/config 目录下有一些内核配置选项，可以根据自己的需求进行修改,它们是静态配置，类似于kernel.config文件。
