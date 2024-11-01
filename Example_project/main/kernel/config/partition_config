@@ -4,7 +4,6 @@
  * 
  **/
 
-
 #define flash_fs 1      //FATFS  
 #if flash_fs == 1
    // #define fatfs_mount_path_0       "/home"
