@@ -81,7 +81,6 @@ void init_console_recovery_mode(void)
 
 
 
-#if defined(ADD_HOOK_SUPPORT_FOR_CONSOLE)
 static char *printf_data;
 char *print_prompt()
 {  
@@ -113,16 +112,14 @@ char *print_prompt()
     free(sysname);
     return printf_data;
 }
-#endif
 
 
 static void console_init(void *arg){
 
     while (home_start == 1){vTaskDelay(1);}
-    #if defined(ADD_HOOK_SUPPORT_FOR_CONSOLE)
     printf_data = (char*)malloc(1024);
     esp_console_hook_run(print_prompt);
-    #endif
+
   
     char *bootlogo;
     FILE *fp ;
