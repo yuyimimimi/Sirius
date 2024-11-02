@@ -75,6 +75,7 @@ cd /etc/boot
 移植就完毕了
 
 配置方式:
+
 ![image](https://github.com/user-attachments/assets/a18d8879-836b-425c-bb7a-b4826260f37f)
 
 ![image](https://github.com/user-attachments/assets/dfb32842-31e0-48e7-a68c-a0d8f6768cf5)
