@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "lunar_os_0.04.0",
-    "project_version":    "3e0d2e2-dirty",
+    "project_version":    "1b1f806-dirty",
     "project_path":       "C:/Users/31740/Documents/GitHub/Sirius/Example_project",
     "idf_path":           "C:/Espressif/frameworks/esp-idf-v5.2.1",
     "build_dir":          "C:/Users/31740/Documents/GitHub/Sirius/Example_project/build",
