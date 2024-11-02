@@ -77,7 +77,7 @@ cd /etc/boot
 关于功能:
 about function
 
-1.如果使用system()没有反应，请前往/espidf/components/newlib/syscalls.c 注释掉system()函数定义，espidf的原始system()函数只是占位的空壳
-1.if you use system() function,please comment it in /espidf/components/newlib/syscalls.c,because espidf original system() function is just a placeholder empty shell.
+1.如果使用system()函数没有反应，请前往/espidf-v5.2.1(按照你实际安装的版本号)/components/newlib/syscalls.c 注释掉system()函数定义。
 
+1.if you use system() function,please comment it in /espidf/components/newlib/syscalls.c
 
