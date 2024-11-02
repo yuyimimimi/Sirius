@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include "esp_chip_info.h"
 #include "esp_flash.h"
@@ -7,9 +6,13 @@
 #include "sdkconfig.h"
 #include "esp_private/esp_clk.h"
 
-
 int uname_cmd(int argc, char **argv)
 {
+    printf("Sirius kernel is open source and free to use\n");
+    printf("If you like it,Please give me a star on GitHub\n");
+    printf("GitHub: https://github.com/yuyimimimi/Sirius\n");
+    printf("This software and any derivative works must comply with GPL v2.0\n");
+    printf("using GPL-v2.0 license\n\n");       
     FILE*  fp = fopen("/etc/system/data/system_version.dat", "r");
     if(fp != NULL)
     {
@@ -23,8 +26,9 @@ int uname_cmd(int argc, char **argv)
         printf("system version:%20s", system_version);
         free(system_version);
     }
-    printf("Core :FreeRTOS for ESPIDF\n");
-    printf("ESpidf version:\n                        %s\n", esp_get_idf_version());
+    printf("Core%30s","FreeRTOS\n");
+    
+    printf("ESpidf version:%20s\n", esp_get_idf_version());
     esp_chip_info_t chip_info;  
     uint32_t flash_size;
     esp_chip_info(&chip_info);

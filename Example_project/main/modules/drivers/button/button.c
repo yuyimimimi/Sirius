@@ -64,6 +64,7 @@ static file_operations_t button0_fops = {
    .close_p = &button0_close,
    .ioctl_p = NULL,
 };
+
 static int  button0_init(void){
     if(gpio_request(button0_pin, "button0",0) != 0){
         if(device_data != NULL){of_node_put(device_data);}
