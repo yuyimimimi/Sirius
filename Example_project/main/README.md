@@ -8,9 +8,6 @@ I will teach you how to run This project on your esp series mcu.
 
 you need use espidf 5.2.1 version.
 
-first you need change esp_console.c file of espidf. new esp_console.c is in /main/file/esp_console.c 
-then add "#define ADD_HOOK_SUPPORT_FOR_CONSOLE" into esp_console.h file.
-
 make sure you have 8mb flash size.
 if lass than 8mb,you need change partition table.
 
@@ -24,7 +21,6 @@ you can use putty or other tool To connect to console.you can see recovery mode,
 create file,edit file。 all file that you need is in /main/file folder.
 
 use reboot command to restart system. you can see system booting message.
-
 
 if your platfrom is not standard,you need change some code.
 
@@ -81,5 +77,7 @@ cd /etc/boot
 关于功能:
 about function
 
-1.如果使用system()没有反应，请前往/espidf/components/newlib/syscalls.c 注释掉system()函数。或者改为int __attribute__((weak)) system(const char *command) { errno = ENOSYS; return -1; }
+1.如果使用system()没有反应，请前往/espidf/components/newlib/syscalls.c 注释掉system()函数定义，espidf的原始system()函数只是占位的空壳
+1.if you use system() function,please comment it in /espidf/components/newlib/syscalls.c,because espidf original system() function is just a placeholder empty shell.
+
 
