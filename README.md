@@ -24,6 +24,8 @@
 
 python语言的支持是通过pikapython项目实现的。你要是对这个项目有兴趣请务必转到它们的网站:[PikaPython 开发文档 — PikaPython 0.1 documentation](https://pikapython.com/doc/) 这是个很有趣的项目。而且使用标准的python3语法，拥有丰富的组件，良好的可移植性。如果你需要在你的项目中结核性使用python和c语言。请务选择它。
 
+你如果不会安装espidf，可以使用带ESPIDF的VM虚拟机。环境已经配置好了,开箱即用:
+http://47.94.220.165/index.php/2024/08/27/esp-idf5-2-2-%e5%b8%a6%e9%9b%86%e6%88%90%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84windows%e8%99%9a%e6%8b%9f%e6%9c%ba/
 
 关于移植：
 
