@@ -5,4 +5,4 @@ if you are a normal user, please do not modify this file.
 
 example_project 中的内核文件才是最新版
 
-这个文件夹更新不会很及时
+这个文件夹的更新不会很及时
