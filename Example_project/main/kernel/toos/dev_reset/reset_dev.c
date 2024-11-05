@@ -83,7 +83,7 @@ char *bootlogo_data = "\
     fwrite(bootlogo_data, strlen(bootlogo_data), 1, fp3);
     fclose(fp3);
 
-char *system_version_data = "Sirius 0.1.0\n";
+char *system_version_data = "Sirius 0.1.2\n";
 
     FILE *fp4 = fopen("/etc/system/data/system_version.dat", "w");
     if (fp4 == NULL) {

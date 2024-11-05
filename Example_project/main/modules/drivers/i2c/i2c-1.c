@@ -14,6 +14,7 @@
 #include "driver/i2c.h"
 #include <linux/of_device.h>
 #include <linux/of.h>
+#include <linux/kernel.h>
 
 #define  min(a,b) ((a)<(b)?(a):(b))
 static int i2c_mode = I2C_MODE_MASTER;
@@ -265,7 +266,12 @@ void __exit i2c_1_dev_exit(void)
 }
 
 
+module_init(i2c_1_dev_init);
+module_exit(i2c_1_dev_exit);
 
+MODULE_LICENSE("GPL-2.0");
+MODULE_AUTHOR("Sirius");
+MODULE_DESCRIPTION("A simple hello world module");
 
 
 

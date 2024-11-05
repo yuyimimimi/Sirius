@@ -161,7 +161,9 @@
       "sirgui.h": "c",
       "app_install.h": "c",
       "kernelconfig": "c",
-      "partition_config": "c"
+      "partition_config": "c",
+      "esp_log.h": "c",
+      "sstream": "c"
     },
     "C_Cpp.errorSquiggles": "enabled"
   }

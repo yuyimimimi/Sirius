@@ -23,10 +23,10 @@ int uname_cmd(int argc, char **argv)
         fread(system_version, 1, 1024, fp);
         system_version[file_size] = '\0';
         fclose(fp);
-        printf("system version:%20s", system_version);
+        printf("system version:%22s", system_version);
         free(system_version);
     }
-    printf("Core%30s","FreeRTOS\n");
+    printf("Core%28s","FreeRTOS\n");
     
     printf("ESpidf version:%20s\n", esp_get_idf_version());
     esp_chip_info_t chip_info;  
