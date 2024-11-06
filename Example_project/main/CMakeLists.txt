@@ -46,24 +46,24 @@ file(GLOB_RECURSE FS_VFS                   ./kernel/fs/*.c)
 #系统初始化文件
 file(GLOB_RECURSE init                   ./kernel/init/*.c)
 
-file(GLOB_RECURSE GPIO_HAL                 ./kernel/toos/arch/espidf/drivers/gpio/*.c)
-file(GLOB_RECURSE ENV                      ./kernel/toos/env/*.c)                     #环境变量管理
-file(GLOB_RECURSE SCRIPTS_STORE            ./kernel/toos/data_scripts/*.sh)           #脚本文件处理目录，用于负责键值对文件增删改查
-file(GLOB_RECURSE DTS                      ./kernel/toos/dts/*.c)                     #简易的设备树解析器
+file(GLOB_RECURSE GPIO_HAL                 ./kernel/tools/arch/espidf/drivers/gpio/*.c)
+file(GLOB_RECURSE ENV                      ./kernel/tools/env/*.c)                     #环境变量管理
+file(GLOB_RECURSE SCRIPTS_STORE            ./kernel/tools/data_scripts/*.sh)           #脚本文件处理目录，用于负责键值对文件增删改查
+file(GLOB_RECURSE DTS                      ./kernel/tools/dts/*.c)                     #简易的设备树解析器
 file(GLOB_RECURSE system_memory_management ./kernel/mm/*.c)
 file(GLOB_RECURSE posix                    ./kernel/system/posix/*.c)                  #Posix系统接口
 
 #ESP-IDF组件
-file(GLOB_RECURSE ESP_SPI_FAT            ./kernel/toos/arch/espidf/esp_spi_fat/*.c)
-file(GLOB_RECURSE ESP_SPIFFS             ./kernel/toos/arch/espidf/esp_spi_spiffs/*.c)
-file(GLOB_RECURSE ESP_LITTLEFS           ./kernel/toos/arch/espidf/esp_spi_littlefs/*.c)
-file(GLOB_RECURSE ESP_FS                 ./kernel/toos/arch/esidf/*.c)
+file(GLOB_RECURSE ESP_SPI_FAT            ./kernel/tools/arch/espidf/esp_spi_fat/*.c)
+file(GLOB_RECURSE ESP_SPIFFS             ./kernel/tools/arch/espidf/esp_spi_spiffs/*.c)
+file(GLOB_RECURSE ESP_LITTLEFS           ./kernel/tools/arch/espidf/esp_spi_littlefs/*.c)
+file(GLOB_RECURSE ESP_FS                 ./kernel/tools/arch/esidf/*.c)
 
 
 file (   GLOB_RECURSE PIKA_PYTHON        
-        ./modules/toos/pikapython/pikascript-api/*.c
-        ./modules/toos/pikapython/pikascript-core/*.c
-        ./modules/toos/pikapython/pikascript-lib/PikaStdLib/*.c )
+        ./modules/tools/pikapython/pikascript-api/*.c
+        ./modules/tools/pikapython/pikascript-core/*.c
+        ./modules/tools/pikapython/pikascript-lib/PikaStdLib/*.c )
 
 
 file(   GLOB_RECURSE LVGL     
