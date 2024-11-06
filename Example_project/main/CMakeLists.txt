@@ -105,16 +105,16 @@ idf_component_register(
                  #内核api目录
                  "kernel/include"                            #内核接口目录 
                  #工具目录
-                 "kernel/toos/arch/espidf/include"           #esp-idf组件目录
-                 "kernel/toos/include"                       #内核工具接口目录
+                 "kernel/tools/arch/espidf/include"           #esp-idf组件目录
+                 "kernel/tools/include"                       #内核工具接口目录
                  "kernel/drivers/video/include"             
                  "kernel/drivers/include"
                  "kernel/init"
                  "kernel/arch/rsicv/include"  
                  "kernel/config"
-                 "modules/toos/pikapython/pikascript-api"
-                 "modules/toos/pikapython/pikascript-core"
-                 "modules/toos/pikapython/pikascript-lib/PikaStdLib"   
+                 "modules/tools/pikapython/pikascript-api"
+                 "modules/tools/pikapython/pikascript-core"
+                 "modules/tools/pikapython/pikascript-lib/PikaStdLib"   
 
                  "libs/lvgl"
                  "libs"
