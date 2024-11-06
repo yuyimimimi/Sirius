@@ -11,27 +11,27 @@ file(GLOB_RECURSE DriverS
 
 
 file(GLOB_RECURSE COMMANDS
-    ./toos/shell/src/cat/*.c
-    ./toos/shell/src/echo/*.c
-    ./toos/shell/src/reboot/*.c
-    ./toos/shell/src/ls/*.c
-    ./toos/shell/src/clear/*.c
-    ./toos/shell/src/pwd/*.c
-    ./toos/shell/src/cd/*.c
-    ./toos/shell/src/mkdir/*.c
-    ./toos/shell/src/history/*.c
-    ./toos/shell/src/uname/*.c
-    ./toos/shell/src/rm/*.c
-    ./toos/shell/src/rmdir/*.c
-    ./toos/shell/src/free/*.c
-    ./toos/shell/src/kilo/*.c
-    ./toos/shell/src/touch/*.c
-    ./toos/shell/src/jobs/*.c
-    ./toos/shell/src/kill/*.c
+    ./tools/shell/src/cat/*.c
+    ./tools/shell/src/echo/*.c
+    ./tools/shell/src/reboot/*.c
+    ./tools/shell/src/ls/*.c
+    ./tools/shell/src/clear/*.c
+    ./tools/shell/src/pwd/*.c
+    ./tools/shell/src/cd/*.c
+    ./tools/shell/src/mkdir/*.c
+    ./tools/shell/src/history/*.c
+    ./tools/shell/src/uname/*.c
+    ./tools/shell/src/rm/*.c
+    ./tools/shell/src/rmdir/*.c
+    ./tools/shell/src/free/*.c
+    ./tools/shell/src/kilo/*.c
+    ./tools/shell/src/touch/*.c
+    ./tools/shell/src/jobs/*.c
+    ./tools/shell/src/kill/*.c
 )
 
 
-file(GLOB_RECURSE RSTDEV                   ./toos/dev_reset/*.c)       
+file(GLOB_RECURSE RSTDEV                   ./tools/dev_reset/*.c)       
 file(GLOB_RECURSE gpio_subsystem           ./kernel/drivers/gpio/*.c)              
 file(GLOB_RECURSE display_farmerwork       ./kernel/drivers/video/src/*.c)         
 file(GLOB_RECURSE ESP_CONSOLE              ./kernel/drivers/tty/console/*.c)
