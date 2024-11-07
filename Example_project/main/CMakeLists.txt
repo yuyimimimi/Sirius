@@ -11,27 +11,27 @@ file(GLOB_RECURSE DriverS
 
 
 file(GLOB_RECURSE COMMANDS
-    ./tools/shell/src/cat/*.c
-    ./tools/shell/src/echo/*.c
-    ./tools/shell/src/reboot/*.c
-    ./tools/shell/src/ls/*.c
-    ./tools/shell/src/clear/*.c
-    ./tools/shell/src/pwd/*.c
-    ./tools/shell/src/cd/*.c
-    ./tools/shell/src/mkdir/*.c
-    ./tools/shell/src/history/*.c
-    ./tools/shell/src/uname/*.c
-    ./tools/shell/src/rm/*.c
-    ./tools/shell/src/rmdir/*.c
-    ./tools/shell/src/free/*.c
-    ./tools/shell/src/kilo/*.c
-    ./tools/shell/src/touch/*.c
-    ./tools/shell/src/jobs/*.c
-    ./tools/shell/src/kill/*.c
+    ./toos/shell/src/cat/*.c
+    ./toos/shell/src/echo/*.c
+    ./toos/shell/src/reboot/*.c
+    ./toos/shell/src/ls/*.c
+    ./toos/shell/src/clear/*.c
+    ./toos/shell/src/pwd/*.c
+    ./toos/shell/src/cd/*.c
+    ./toos/shell/src/mkdir/*.c
+    ./toos/shell/src/history/*.c
+    ./toos/shell/src/uname/*.c
+    ./toos/shell/src/rm/*.c
+    ./toos/shell/src/rmdir/*.c
+    ./toos/shell/src/free/*.c
+    ./toos/shell/src/kilo/*.c
+    ./toos/shell/src/touch/*.c
+    ./toos/shell/src/jobs/*.c
+    ./toos/shell/src/kill/*.c
 )
 
 
-file(GLOB_RECURSE RSTDEV                   ./tools/dev_reset/*.c)       
+file(GLOB_RECURSE RSTDEV                   ./toos/dev_reset/*.c)       
 file(GLOB_RECURSE gpio_subsystem           ./kernel/drivers/gpio/*.c)              
 file(GLOB_RECURSE display_farmerwork       ./kernel/drivers/video/src/*.c)         
 file(GLOB_RECURSE ESP_CONSOLE              ./kernel/drivers/tty/console/*.c)
@@ -46,24 +46,24 @@ file(GLOB_RECURSE FS_VFS                   ./kernel/fs/*.c)
 #系统初始化文件
 file(GLOB_RECURSE init                   ./kernel/init/*.c)
 
-file(GLOB_RECURSE GPIO_HAL                 ./kernel/tools/arch/espidf/drivers/gpio/*.c)
-file(GLOB_RECURSE ENV                      ./kernel/tools/env/*.c)                     #环境变量管理
-file(GLOB_RECURSE SCRIPTS_STORE            ./kernel/tools/data_scripts/*.sh)           #脚本文件处理目录，用于负责键值对文件增删改查
-file(GLOB_RECURSE DTS                      ./kernel/tools/dts/*.c)                     #简易的设备树解析器
+file(GLOB_RECURSE GPIO_HAL                 ./kernel/toos/arch/espidf/drivers/gpio/*.c)
+file(GLOB_RECURSE ENV                      ./kernel/toos/env/*.c)                     #环境变量管理
+file(GLOB_RECURSE SCRIPTS_STORE            ./kernel/toos/data_scripts/*.sh)           #脚本文件处理目录，用于负责键值对文件增删改查
+file(GLOB_RECURSE DTS                      ./kernel/toos/dts/*.c)                     #简易的设备树解析器
 file(GLOB_RECURSE system_memory_management ./kernel/mm/*.c)
 file(GLOB_RECURSE posix                    ./kernel/system/posix/*.c)                  #Posix系统接口
 
 #ESP-IDF组件
-file(GLOB_RECURSE ESP_SPI_FAT            ./kernel/tools/arch/espidf/esp_spi_fat/*.c)
-file(GLOB_RECURSE ESP_SPIFFS             ./kernel/tools/arch/espidf/esp_spi_spiffs/*.c)
-file(GLOB_RECURSE ESP_LITTLEFS           ./kernel/tools/arch/espidf/esp_spi_littlefs/*.c)
-file(GLOB_RECURSE ESP_FS                 ./kernel/tools/arch/esidf/*.c)
+file(GLOB_RECURSE ESP_SPI_FAT            ./kernel/toos/arch/espidf/esp_spi_fat/*.c)
+file(GLOB_RECURSE ESP_SPIFFS             ./kernel/toos/arch/espidf/esp_spi_spiffs/*.c)
+file(GLOB_RECURSE ESP_LITTLEFS           ./kernel/toos/arch/espidf/esp_spi_littlefs/*.c)
+file(GLOB_RECURSE ESP_FS                 ./kernel/toos/arch/esidf/*.c)
 
 
 file (   GLOB_RECURSE PIKA_PYTHON        
-        ./modules/tools/pikapython/pikascript-api/*.c
-        ./modules/tools/pikapython/pikascript-core/*.c
-        ./modules/tools/pikapython/pikascript-lib/PikaStdLib/*.c )
+        ./modules/toos/pikapython/pikascript-api/*.c
+        ./modules/toos/pikapython/pikascript-core/*.c
+        ./modules/toos/pikapython/pikascript-lib/PikaStdLib/*.c )
 
 
 file(   GLOB_RECURSE LVGL     
@@ -105,16 +105,16 @@ idf_component_register(
                  #内核api目录
                  "kernel/include"                            #内核接口目录 
                  #工具目录
-                 "kernel/tools/arch/espidf/include"           #esp-idf组件目录
-                 "kernel/tools/include"                       #内核工具接口目录
+                 "kernel/toos/arch/espidf/include"           #esp-idf组件目录
+                 "kernel/toos/include"                       #内核工具接口目录
                  "kernel/drivers/video/include"             
                  "kernel/drivers/include"
                  "kernel/init"
                  "kernel/arch/rsicv/include"  
                  "kernel/config"
-                 "modules/tools/pikapython/pikascript-api"
-                 "modules/tools/pikapython/pikascript-core"
-                 "modules/tools/pikapython/pikascript-lib/PikaStdLib"   
+                 "modules/toos/pikapython/pikascript-api"
+                 "modules/toos/pikapython/pikascript-core"
+                 "modules/toos/pikapython/pikascript-lib/PikaStdLib"   
 
                  "libs/lvgl"
                  "libs"
