@@ -11,8 +11,8 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   "ldgen_libraries"
   "ldgen_libraries.in"
   "littlefs_py_venv"
-  "lunar_os_0.04.0.map"
   "project_elf_src_esp32c3.c"
+  "sirius.map"
   "x509_crt_bundle.S"
   )
 endif()

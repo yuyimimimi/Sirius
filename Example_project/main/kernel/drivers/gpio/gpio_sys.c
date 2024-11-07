@@ -119,9 +119,9 @@ int gpio_request(unsigned gpio_num,const char *label, uint32_t device_number )//
      }
      else //该gpio信号量为0 申请失败
      {
-       pr_err(dev_name,"gpio %d is busy\n",gpio_num);
+       pr_err(dev_name,"gpio %d is busy",gpio_num);
        if(gpio_dev_info_array[gpio_num].dev_label!= NULL)
-       pr_err(dev_name,"device %s is using this gpio pleace release it first\n",gpio_dev_info_array[gpio_num].dev_label);
+       pr_err(dev_name,"device %s is using this gpio pleace release it first",gpio_dev_info_array[gpio_num].dev_label);
        return -EBUSY;
      }
 }

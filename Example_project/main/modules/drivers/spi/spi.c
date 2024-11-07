@@ -40,7 +40,7 @@ static int spi_bus_init(void){
     if(ret != EXIT_SUCCESS){
         return -1;
     }
-    printk(KERN_INFO "spi bus init success\n");
+    printk(KERN_INFO "spi bus init success");
     return 0;
 }
 
@@ -49,60 +49,60 @@ static int get_spi_config_from_dt(void)
 {
     char *path_of_node = "/spi_dev/spi@0";
     np = of_find_node_by_path(path_of_node);
-    if (np == NULL) {printk(KERN_ERR "Spi driver: Failed to find node %s\n", path_of_node);return -1;}
-    printk(KERN_INFO "Spi driver: Found node %s\n", path_of_node);
+    if (np == NULL) {printk(KERN_ERR "Spi driver: Failed to find node %s", path_of_node);return -1;}
+    printk(KERN_INFO "Spi driver: Found node %s", path_of_node);
     
 
     int *data = of_get_property(np, "enable", NULL);
-    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get enable property\n");return -1;}
-    if(*data != 1) {printk(KERN_ERR "Spi driver: SPI is not enabled\n");return -1;}
-    printk(KERN_INFO "Spi driver: SPI is enabled\n");
+    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get enable property");return -1;}
+    if(*data != 1) {printk(KERN_ERR "Spi driver: SPI is not enabled");return -1;}
+    printk(KERN_INFO "Spi driver: SPI is enabled");
     free(data);
 
     data = of_get_property(np, "miso_pin", NULL);
-    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get miso-gpio property\n");return -1;}
+    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get miso-gpio property");return -1;}
     PIN_NUM_MISO = *data;
-    printk(KERN_INFO "Spi driver: miso-gpio is %d\n", PIN_NUM_MISO);
+    printk(KERN_INFO "Spi driver: miso-gpio is %d", PIN_NUM_MISO);
     free(data);
 
     data = of_get_property(np, "mosi_pin", NULL);
-    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get mosi-gpio property\n");return -1;}
+    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get mosi-gpio property");return -1;}
     PIN_NUM_MOSI = *data;
-    printk(KERN_INFO "Spi driver: mosi-gpio is %d\n", PIN_NUM_MOSI);
+    printk(KERN_INFO "Spi driver: mosi-gpio is %d", PIN_NUM_MOSI);
     free(data);
 
     data = of_get_property(np, "sclk_pin", NULL);
-    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get sclk-gpio property\n");return -1;}
+    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get sclk-gpio property");return -1;}
     PIN_NUM_CLK = *data;
-    printk(KERN_INFO "Spi driver: sclk-gpio is %d\n", PIN_NUM_CLK);
+    printk(KERN_INFO "Spi driver: sclk-gpio is %d", PIN_NUM_CLK);
     free(data);
 
     data = of_get_property(np, "spi_host", NULL);
-    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get host property\n");return -1;}
+    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get host property");return -1;}
     EEPROM_HOST = *data;
-    printk(KERN_INFO "Spi driver: spi_host is %d\n", EEPROM_HOST);
+    printk(KERN_INFO "Spi driver: spi_host is %d", EEPROM_HOST);
     free(data);
 
     data = of_get_property(np, "trans_list_longer", NULL);
-    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get trans_list_longer property\n");return -1;}
+    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get trans_list_longer property");return -1;}
     trans_list_longer = *data;
-    printk(KERN_INFO "Spi driver: trans_list_longer is %d\n", trans_list_longer);
+    printk(KERN_INFO "Spi driver: trans_list_longer is %d", trans_list_longer);
     free(data);
 
     data = of_get_property(np, "spi_buffer_size", NULL);
-    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get spi_buffer_size property\n");return -1;}
+    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get spi_buffer_size property");return -1;}
     spi_buffer_size = *data;
-    printk(KERN_INFO "Spi driver: spi_buffer_size is %d\n", spi_buffer_size);
+    printk(KERN_INFO "Spi driver: spi_buffer_size is %d", spi_buffer_size);
     free(data);
 
     data = of_get_property(np, "default_speed", NULL);
-    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get spi_default_speed property\n");return -1;}
+    if(data == NULL) {printk(KERN_ERR "Spi driver: Failed to get spi_default_speed property");return -1;}
     spi_default_speed = *data;
-    printk(KERN_INFO "Spi driver: spi_default_speed is %d\n", spi_default_speed);
+    printk(KERN_INFO "Spi driver: spi_default_speed is %d", spi_default_speed);
     free(data);
 
     of_node_put(np);
-    printk(KERN_INFO "Spi driver: SPI get data frome dt success\n");
+    printk(KERN_INFO "Spi driver: SPI get data frome dt success");
     return 0;
 }
 
@@ -111,28 +111,28 @@ static int get_gpio(void)
 {
     if(PIN_NUM_MISO != -1){
         if(gpio_request(PIN_NUM_MISO, "SPI_miso_gpio",0) != 0){
-            printk(KERN_ERR "Spi driver: Failed to request miso gpio\n");
+            printk(KERN_ERR "Spi driver: Failed to request miso gpio");
             return -1;
         }        
     }
-    printk(KERN_INFO "Spi driver: spi get miso pin success\n"); 
+    printk(KERN_INFO "Spi driver: spi get miso pin success"); 
     if(PIN_NUM_MOSI != -1){
         if(gpio_request(PIN_NUM_MOSI, "SPI_mosi_gpio",0) != 0){
-            printk(KERN_ERR "Spi driver: Failed to request mosi gpio\n");
+            printk(KERN_ERR "Spi driver: Failed to request mosi gpio");
             gpio_free(PIN_NUM_MISO);
             return -1;
         }
     }
-    printk(KERN_INFO "Spi driver: spi get mosi pin success\n"); 
+    printk(KERN_INFO "Spi driver: spi get mosi pin success"); 
     if(PIN_NUM_CLK  != -1){
         if(gpio_request(PIN_NUM_CLK, "SPI_sck_gpio",0) != 0){
-            printk(KERN_ERR "Spi driver: Failed to request sck gpio\n");
+            printk(KERN_ERR "Spi driver: Failed to request sck gpio");
             gpio_free(PIN_NUM_MOSI);
             gpio_free(PIN_NUM_MISO);
             return -1;
         }
     }
-    printk(KERN_INFO "Spi driver: spi get sck pin success\n"); 
+    printk(KERN_INFO "Spi driver: spi get sck pin success"); 
     return 0;
 }
 
@@ -148,7 +148,7 @@ static int spi_driver_Init(){
      };
     ret=spi_bus_add_device(EEPROM_HOST, &interface_config, &spi);
     if(ret != EXIT_SUCCESS){
-        printk(KERN_ERR "Spi driver: Failed to add device to spi bus\n");
+        printk(KERN_ERR "Spi driver: Failed to add device to spi bus");
         return -1;
     }
     return 0;
@@ -172,7 +172,7 @@ static int spi_device_init(void)
     }
     user_spi_transaction = (spi_transaction_t*)vmalloc(trans_list_longer * sizeof(spi_transaction_t));
     if(user_spi_transaction == NULL){
-        printk(KERN_ERR "Spi driver: Failed to allocate memory for spi transaction\n");
+        printk(KERN_ERR "Spi driver: Failed to allocate memory for spi transaction");
         return -1;
     }
     return 0;
@@ -252,16 +252,16 @@ static file_operations_t spi_fops = {
 
 int __init spi_init(void)
 {
-    printk(KERN_INFO "Spi driver: spi driver version %s\n", DRIVER_VERSION);
+    printk(KERN_INFO "Spi driver: spi driver version %s", DRIVER_VERSION);
     if(spi_device_init() != 0){
         return -1;
     }
     spi_major = register_chrdev(230, "spi-1", &spi_fops);
     if(spi_major < 0){
-        printk(KERN_ERR "Spi driver: Failed to register char device\n");
+        printk(KERN_ERR "Spi driver: Failed to register char device");
         return -1;
     }
-    printk(KERN_INFO "Spi driver: spi driver major number %d\n", spi_major);
+    printk(KERN_INFO "Spi driver: spi driver major number %d", spi_major);
     return 0;
 }
 

@@ -31,81 +31,81 @@ int ST7789_Getconfig(void)
     //获取ST7789设备节点
     device_node = of_find_node_by_path(device_node_path);           
     if (device_node == NULL) {
-        printf("ST7789:Failed to find device node %s\n", device_node_path);
+        printf("ST7789:Failed to find device node %s", device_node_path);
         return -1;
     }
     //检测是否启用结点
     char *enable_node_path = of_get_property(device_node, "status", NULL);
     if (enable_node_path == NULL) {
-        printf("Failed to get status property\n");
+        printf("Failed to get status property");
         return -1;
     }
     if (strcmp(enable_node_path, "okay") != 0) {
-        printf("Device is disabled\n");
+        printf("Device is disabled");
         return -1;
     }
     //获取spi节点路径
     spi_node_path = of_get_property(device_node, "compatible", NULL);
     if (spi_node_path == NULL) {
-        printf("Failed to get compatible property\n");
+        printf("Failed to get compatible property");
         return -1;
     }
-    printk( KERN_INFO "ST7789:use spi node %s\n", spi_node_path);
+    printk( KERN_INFO "ST7789:use spi node %s", spi_node_path);
     //获取spi节点
     struct device_node *spi_node = of_find_node_by_path(spi_node_path);
     if (spi_node == NULL) {
-        printf("Failed to find spi node %s\n", spi_node_path);
+        printf("Failed to find spi node %s", spi_node_path);
         return -1;
     }
-    printk( KERN_INFO "ST7789:get spi node\n");
+    printk( KERN_INFO "ST7789:get spi node");
     /**
      * 获取st7789的引脚配置信息
     */
     //获取Back_Pin
     Back_Pin = of_get_property(device_node, "bl_gpios", NULL);
     if (Back_Pin == NULL) {
-        printf("Failed to get back-pin property\n");
+        printf("Failed to get back-pin property");
         return -1;
     }
-    printk( KERN_INFO "ST7789:get back-pin : %d\n", *Back_Pin);
+    printk( KERN_INFO "ST7789:get back-pin : %d", *Back_Pin);
     //获取CS_pin
     CS_pin = of_get_property(device_node, "cs_gpios", NULL);
     if (CS_pin == NULL) {
-        printf("Failed to get cs-pin property\n");
+        printf("Failed to get cs-pin property");
         return -1;
     }
-    printk( KERN_INFO "ST7789:get cs-pin : %d\n", *CS_pin);
+    printk( KERN_INFO "ST7789:get cs-pin : %d", *CS_pin);
     //获取DC_pin
     DC_pin = of_get_property(device_node, "dc_gpios", NULL);
     if (DC_pin == NULL) {
-        printf("Failed to get dc-pin property\n");
+        printf("Failed to get dc-pin property");
         return -1;
     }
-    printk( KERN_INFO "ST7789:get dc-pin: %d\n", *DC_pin);
+    printk( KERN_INFO "ST7789:get dc-pin: %d", *DC_pin);
     /**
      * 获取使用的spi通道的配置信息
     */
     //获取spi_speed_hz
     spi_speed_hz = of_get_property(device_node, "spi_max_frequency", NULL);
     if (spi_speed_hz == NULL) {
-        printf("Failed to get spi-max-frequency property\n");
+        printf("Failed to get spi-max-frequency property");
         return -1;
     }
-    printk( KERN_INFO "ST7789:ST7789 spi_speed_frequency_hz : %ld\n", *spi_speed_hz);
+    printk( KERN_INFO "ST7789:ST7789 spi_speed_frequency_hz : %ld", *spi_speed_hz);
     //获取spi_host
     spi_host = of_get_property(spi_node, "spi_host", NULL);
     if (spi_host == NULL) {
-        printf("Failed to get spi-host property\n");
+        printf("Failed to get spi-host property");
         return -1;
     }
-    printk( KERN_INFO "ST7789:get spi-host : %d\n", *spi_host);
+    printk( KERN_INFO "ST7789:get spi-host : %d", *spi_host);
     //获取spi_buffers_max_size
     spi_buffers_max_size = of_get_property(spi_node, "spi_buffer_size", NULL);
     if (spi_buffers_max_size == NULL) {
-        printf("Failed to get spi-buffers-max-size property\n");
+        printf("Failed to get spi-buffers-max-size property");
         return -1;
     }
-    printk( KERN_INFO "ST7789:get spi-buffers-max-size : %ld\n", *spi_buffers_max_size);
+    printk( KERN_INFO "ST7789:get spi-buffers-max-size : %ld", *spi_buffers_max_size);
     return 0;
 }
 

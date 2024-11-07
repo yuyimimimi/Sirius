@@ -210,7 +210,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=lunar_os_0.04.0
+CMAKE_PROJECT_NAME:STATIC=sirius
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/Espressif/Espressif/tools/riscv32-esp-elf/esp-13.2.0_20230928/riscv32-esp-elf/bin/riscv32-esp-elf-ranlib.exe
@@ -372,6 +372,15 @@ mbedx509_LIB_DEPENDS:STATIC=general;__idf_cxx;general;__idf_newlib;general;__idf
 
 //Dependencies for the target
 p256m_LIB_DEPENDS:STATIC=general;__idf_cxx;general;__idf_newlib;general;__idf_freertos;general;__idf_esp_hw_support;general;__idf_heap;general;__idf_log;general;__idf_soc;general;__idf_hal;general;__idf_esp_rom;general;__idf_esp_common;general;__idf_esp_system;general;__idf_riscv;
+
+//Value Computed by CMake
+sirius_BINARY_DIR:STATIC=C:/Users/31740/Documents/GitHub/Sirius/Example_project/build
+
+//Value Computed by CMake
+sirius_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+sirius_SOURCE_DIR:STATIC=C:/Users/31740/Documents/GitHub/Sirius/Example_project
 
 
 ########################

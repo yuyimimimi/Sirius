@@ -65,7 +65,7 @@ uint32_t register_chrdev(uint32_t dev_number,char* name,file_operations_t *fops,
             uint32_t *new_devce_number = (uint32_t*)vmalloc((length+10)*sizeof(uint32_t));
             if(new_devce_number == NULL)
             {
-                printk(KERN_INFO "Failed to allocate memory for devce_number\n");
+                printk(KERN_INFO "Failed to allocate memory for devce_number");
                 return 0;
             }
             length+=10;
@@ -104,12 +104,12 @@ uint32_t register_chrdev(uint32_t dev_number,char* name,file_operations_t *fops,
     esp_err_t ret = esp_vfs_register(path, fops, place);
 
     if (ret != ESP_OK) {
-        pr_err(FS_TAG,"Failed to register device: %s, err: %d\n", path, ret);
+        pr_err(FS_TAG,"Failed to register device: %s, err: %d", path, ret);
         return -1;
     }
 
     create_vfs_node_file(path,"device",device_number);
-    printk(KERN_INFO "driver installed:dev_path:%s, device_num: %#lx\n",path, (long unsigned int)device_number);                                       
+    printk(KERN_INFO "driver installed:dev_path:%s, device_num: %#lx",path, (long unsigned int)device_number);                                       
 
     pthread_mutex_unlock(&majors_mutex);                           
     return device_number;

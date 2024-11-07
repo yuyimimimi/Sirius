@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: lunar_os_0.04.0
+# Project: sirius
 # Configurations: 
 # =============================================================================
 # =============================================================================
@@ -14,7 +14,7 @@
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__lunar_os_0.2e04.2e0.2eelf_
+rule C_COMPILER__sirius.2eelf_
   depfile = $DEP_FILE
   deps = gcc
   command = C:\Espressif\Espressif\tools\riscv32-esp-elf\esp-13.2.0_20230928\riscv32-esp-elf\bin\riscv32-esp-elf-gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -24,7 +24,7 @@ rule C_COMPILER__lunar_os_0.2e04.2e0.2eelf_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__lunar_os_0.2e04.2e0.2eelf_
+rule CXX_EXECUTABLE_LINKER__sirius.2eelf_
   command = cmd.exe /C "$PRE_LINK && C:\Espressif\Espressif\tools\riscv32-esp-elf\esp-13.2.0_20230928\riscv32-esp-elf\bin\riscv32-esp-elf-g++.exe $FLAGS $LINK_FLAGS @$RSP_FILE -o $TARGET_FILE  && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   rspfile = $RSP_FILE

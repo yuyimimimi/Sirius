@@ -13,5 +13,5 @@ void printk( const char *format, ...) {
     double seconds = timestamp / 1000000.0;  // 转换为秒
 
     // 输出时间戳和日志级别
-    printf("[%12.6f] %s ", seconds, buffer);
+    printf("[%12.6f] %s\n", seconds, buffer);
 }

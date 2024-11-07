@@ -3,6 +3,7 @@
 #include "registry.h"
 #include "registry/path_process.h"
 #include "env.h"
+#include <linux/kernel.h>
 
 char *register_path = REGISTRY_PATH;
 
@@ -15,9 +16,9 @@ int registry_init()
     }
     else
     {
-       printf("[REGISTRY]:REGISTRY_PATH is not set, use default path %s\n", register_path);
+       printk("[REGISTRY]:REGISTRY_PATH is not set, use default path %s", register_path);
        setenv_("REGISTRY_PATH", register_path, 1);
-       printf("[REGISTRY]:please set PATH in /etc/profile\n");
+       printk("[REGISTRY]:please set PATH in /etc/profile");
     }
     check_path(register_path);
     return 0;

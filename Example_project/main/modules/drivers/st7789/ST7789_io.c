@@ -20,7 +20,7 @@ static int ST7789_Backlight_Init(void)
 {
     if(gpio_request(ST7789_get_Back_Pin(), "ST7789_Backlight",0) != 0)
     {
-        printk( KERN_INFO "ST7789_Backlight gpio busy,please check device tree\n");
+        printk( KERN_INFO "ST7789_Backlight gpio busy,please check device tree");
         return -1;
     }
 
@@ -49,12 +49,12 @@ static int ST7789_CSDC_Init(void)
 {
     if(gpio_request(ST7789_get_CS_pin(), "ST7789_CS",0) != 0)
     {
-        printk( KERN_INFO "ST7789_CS gpio busy,please check device tree\n");
+        printk( KERN_INFO "ST7789_CS gpio busy,please check device tree");
         return -1;
     }
     if(gpio_request(ST7789_get_DC_pin(), "ST7789_DC",0) != 0)
     {
-        printk( KERN_INFO "ST7789_DC gpio busy,please check device tree\n");
+        printk( KERN_INFO "ST7789_DC gpio busy,please check device tree");
         return -1;
     }
     gpio_direction_output(ST7789_get_DC_pin(), 1);
@@ -111,26 +111,26 @@ static int ST7789_spi_Init(void)
 int ST7789_device_init(void)
 {
     if(ST7789_Getconfig() != 0){
-        printk( KERN_INFO "ST7789_Getconfig failed\n");
+        printk( KERN_INFO "ST7789_Getconfig failed");
         return -1;
     }
-    printk( KERN_INFO "ST7789_Getconfig success\n");
+    printk( KERN_INFO "ST7789_Getconfig success");
     if(ST7789_Backlight_Init() != 0){
-        printk(KERN_INFO "ST7789_Backlight_Init failed\n");
+        printk(KERN_INFO "ST7789_Backlight_Init failed");
         return -1;
     }
-    printk( KERN_INFO "ST7789_Backlight_Init success\n");
+    printk( KERN_INFO "ST7789_Backlight_Init success");
     if(ST7789_CSDC_Init() != 0){
-        printk(KERN_INFO "ST7789_CSDC_Init failed\n");
+        printk(KERN_INFO "ST7789_CSDC_Init failed");
         return -1;
     }
-    printk( KERN_INFO "ST7789_CSDC_Init success\n");
+    printk( KERN_INFO "ST7789_CSDC_Init success");
 
     if(ST7789_spi_Init() != 0){
-        printk(KERN_INFO "ST7789_spi_Init failed\n");
+        printk(KERN_INFO "ST7789_spi_Init failed");
         return -1;
     }
-    printk( KERN_INFO "ST7789_spi_Init success\n");
+    printk( KERN_INFO "ST7789_spi_Init success");
     return 0;
 }
 

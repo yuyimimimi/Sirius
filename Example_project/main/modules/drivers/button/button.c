@@ -27,33 +27,33 @@ static __init int button_data_from_dtb(void)
 {
     char *path = "/button@0";
     device_data = of_find_node_by_path(path);
-    if(device_data == NULL){printk(KERN_INFO "Button: Can not find device node %s\n", path);return -1;}
+    if(device_data == NULL){printk(KERN_INFO "Button: Can not find device node %s", path);return -1;}
 
     char *data1 = (char*)of_get_property(device_data, "status", NULL);
     if(data1 == NULL){return -1; printk(KERN_INFO "Button: Button driver init failed ,please check 'status' in dts file\n");}
-    if(data1[0] != 'o'){return -1; printk(KERN_INFO "Button: Button driver is Desabled\n");}
-    printk(KERN_INFO "Button: Button driver status:%s\n", data1);
+    if(data1[0] != 'o'){return -1; printk(KERN_INFO "Button: Button driver is Desabled");}
+    printk(KERN_INFO "Button: Button driver status:%s", data1);
     free(data1);
 
     int *data = (int*)of_get_property(device_data, "pin", NULL);
     if(data == NULL){return -1;}
     button0_pin = *data;free(data);
-    printk(KERN_INFO "BButton: utton driver pin:%d\n", button0_pin);
+    printk(KERN_INFO "BButton: utton driver pin:%d", button0_pin);
 
     data = (int*)of_get_property(device_data, "pull-up", NULL);
-    if(data == NULL){printk(KERN_INFO "Button: Button driver init failed\n");return -1; }
+    if(data == NULL){printk(KERN_INFO "Button: Button driver init failed");return -1; }
     PULL_UP_BUTTON = *data;free(data);
-    printk(KERN_INFO "Button: Button driver pull-up:%d\n", PULL_UP_BUTTON);
+    printk(KERN_INFO "Button: Button driver pull-up:%d", PULL_UP_BUTTON);
 
     data = (int*)of_get_property(device_data, "pull-down", NULL);
-    if(data == NULL){printk(KERN_INFO "Button: Button driver init failed\n");return -1;}
+    if(data == NULL){printk(KERN_INFO "Button: Button driver init failed");return -1;}
     PULL_DOWN_BUTTON = *data;free(data);
-    printk(KERN_INFO "Button: Button driver pull-down:%d\n", PULL_DOWN_BUTTON);
+    printk(KERN_INFO "Button: Button driver pull-down:%d", PULL_DOWN_BUTTON);
  
     data = (int*)of_get_property(device_data, "major", NULL);
     if(data == NULL){ button0_dev_major = 0;}
     button0_dev_major = *data;free(data); 
-    printk(KERN_INFO "Button: Button driver major:%d\n", button0_dev_major);
+    printk(KERN_INFO "Button: Button driver major:%d", button0_dev_major);
     return 0;
 }
 
@@ -68,7 +68,7 @@ static file_operations_t button0_fops = {
 static int  button0_init(void){
     if(gpio_request(button0_pin, "button0",0) != 0){
         if(device_data != NULL){of_node_put(device_data);}
-        printk(KERN_INFO "Button: gpio busy or invalid pin\n");
+        printk(KERN_INFO "Button: gpio busy or invalid pin");
         return -1;
     }
     of_node_put(device_data);
@@ -81,7 +81,7 @@ int __init button0_driver_init(void){
   if(button0_init() != 0)return -1;                                                                         
   button0_buffer = (char*)vmalloc(sizeof(char)*8);  
   if(button0_buffer == NULL){
-      printk(KERN_INFO "Button: Button driver init failed\n");
+      printk(KERN_INFO "Button: Button driver init failed");
       return -1;
   }
   button0_dev_major = register_chrdev(button0_dev_major, "button-1", &button0_fops);  

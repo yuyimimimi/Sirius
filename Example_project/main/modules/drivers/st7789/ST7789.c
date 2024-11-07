@@ -124,9 +124,9 @@ void draw_block_test(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_
 
 int LCDST7789c_Init()
 {
-    printf("ST7789 init start!\n");
+    printf("ST7789 init start!");
     if(ST7789_device_init() != 0){
-        printk( KERN_INFO "ST7789 device init fail!\n");
+        printk( KERN_INFO "ST7789 device init fail!");
         return -1;
     }
 
@@ -145,7 +145,7 @@ int LCDST7789c_Init()
         }
         num++;
     }
-    printf("ST7789 init success!\n");    
+    printf("ST7789 init success!");    
 
     uint16_t *color = (uint16_t*)malloc(240*sizeof(uint16_t));
 

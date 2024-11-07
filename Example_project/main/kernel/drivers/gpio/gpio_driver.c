@@ -38,7 +38,7 @@ static int gpio_value_open(void* ctx, const char * path, int flags, int mode)
 }
 static ssize_t gpio_value_read(void* ctx,int fd, void *buf, size_t count)
 {
-    printf("gpio_read\n");
+    printf("gpio_read");
     unsigned int *device_number =  (unsigned int*)ctx;                                                       
     int *pin_num;
     int length = get_gpio_num_by_dev_number(device_number[0], &pin_num);
@@ -71,7 +71,7 @@ static ssize_t gpio_value_write(void* ctx, int fd, const void * data, size_t siz
         }
         else
         {
-            printf("invalid value\n");
+            printf("invalid value");
         }
         free (pin_num);
     }
@@ -108,7 +108,7 @@ static ssize_t gpio_direction_write(void* ctx, int fd, const void * data, size_t
            gpio_direction_output(pin_num[0],0); //set output value to 0
         }
         else{
-            printf("invalid direction\n");
+            printf("invalid direction");
         }
         free (pin_num);
     }
@@ -135,7 +135,7 @@ static int get_device_data_from_dts(void)
     {
         max_pin_num = *gpio_count;
         free(gpio_count);
-        printk(KERN_INFO  "max_pin_num:%d\n",max_pin_num);        
+        printk(KERN_INFO  "max_pin_num:%d",max_pin_num);        
     } 
 
     int *dev_major = of_get_property(gpio_node, "reg", NULL);
@@ -144,7 +144,7 @@ static int get_device_data_from_dts(void)
     {
       major = *dev_major;
       free(dev_major);     
-      printk(KERN_INFO  "major:%d\n",major);
+      printk(KERN_INFO  "major:%d",major);
     }
 
 
@@ -154,7 +154,7 @@ static int get_device_data_from_dts(void)
     {
        gpio_chip_name = gpio_chip_name_tmp;
        free(gpio_chip_name_tmp);  
-       printk(KERN_INFO  "gpio_chip_name:%s\n",gpio_chip_name);
+       printk(KERN_INFO  "gpio_chip_name:%s",gpio_chip_name);
     }
     of_node_put(gpio_node);
 
@@ -182,11 +182,11 @@ static ssize_t gpiochip_write(void* ctx,int fd,const void *buf, size_t count)
         pin_num = (gpio_pin_num[0] - '0')*100 + (gpio_pin_num[1] - '0')*10 + (gpio_pin_num[2] - '0');
     }
 
-    printf("gpio_pin_num:%d\n",pin_num);
+    printf("gpio_pin_num:%d",pin_num);
 
     if(check_is_gpio_in_using_io_number(pin_num) == 1)
     {
-        printk("GPIO busy\n");
+        printk("GPIO busy");
         return -1;
     }
     __u32 device_number = register_chrdev(major, "gpio-%d/v", &gpio_value,pin_num); //注册设备,将设备导出到用户空间

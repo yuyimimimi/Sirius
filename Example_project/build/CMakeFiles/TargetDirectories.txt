@@ -11,7 +11,7 @@ C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/CMakeFiles/monitor.
 C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/CMakeFiles/flash.dir
 C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/CMakeFiles/encrypted-flash.dir
 C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/CMakeFiles/_project_elf_src.dir
-C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/CMakeFiles/lunar_os_0.04.0.elf.dir
+C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/CMakeFiles/sirius.elf.dir
 C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/CMakeFiles/size.dir
 C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/CMakeFiles/size-files.dir
 C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/CMakeFiles/size-components.dir
