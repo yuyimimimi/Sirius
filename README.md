@@ -50,6 +50,19 @@ AppInit_init可用于console程序模块的添加。你可以查看./example_mod
 5.示例工程的main目录下有中文英文版的移植指南。它的移植很简单
 
 
+
+
+<img width="621" alt="image" src="https://github.com/user-attachments/assets/21ab0e77-ea94-470d-96e8-b2dc4c12baab">
+
+
+
+
+
+
+
+
+
+
 补充：
 
   1.目前设备子系统还不完善，它们的开发是一个漫长的过程...所以现在还不能完全和linux一样使用完全跨平台的设备子系统。
