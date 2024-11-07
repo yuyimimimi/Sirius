@@ -7,5 +7,7 @@
 #define KERN_INFO       
 #define KERN_WARNING    
 #define KERN_ERR     
+
+void printk( const char *format, ...);
    
 #endif
