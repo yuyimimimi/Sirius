@@ -265,7 +265,6 @@ int __init spi_init(void)
     return 0;
 }
 
-void __exit spi_exit(void){}
 
 // module_init(spi_init);
 module_exit(spi_exit);
