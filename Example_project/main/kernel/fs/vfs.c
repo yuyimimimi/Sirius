@@ -116,18 +116,22 @@ uint32_t register_chrdev(uint32_t dev_number,char* name,file_operations_t *fops,
 }
 
 
-uint32_t search_major(uint32_t major)
+
+
+
+
+uint32_t search_major(uint32_t device_number)       //搜索设备号
 {
       int left = 0, right = used - 1;
 
     while (left <= right) 
     {
         int mid = (left + right) / 2;
-        if (devce_number[mid] == major) 
+        if (devce_number[mid] == device_number) 
         {
             return mid;
         }
-         else if (devce_number[mid] < major) 
+         else if (devce_number[mid] < device_number) 
         {
             left = mid + 1;
         }
@@ -139,28 +143,25 @@ uint32_t search_major(uint32_t major)
     return left;  
 }
 
-uint32_t insert_major(uint32_t major)
+uint32_t insert_major(uint32_t device_number)           //插入设备号
 {
     if(used == 0)
     {
-        devce_number[0]=major;
+        devce_number[0]=device_number;
         used++;
-        return major;
+        return device_number;
     }
-    int ma = search_major(major);
+    int ma = search_major(device_number);
     for(int i=used;i>=ma;i--)
     {
         devce_number[i+1]=devce_number[i];
     }
-    devce_number[ma]=major;
+    devce_number[ma]=device_number;
     used++;
-    return major;
+    return device_number;
 }
 
-
-
-
-uint32_t MKDEV(uint16_t major, uint16_t minor )
+uint32_t MKDEV(uint16_t major, uint16_t minor ) //根据主次设备号生成设备号
 {
 
     uint32_t dev_num = (major << 16) | minor;
@@ -183,16 +184,16 @@ uint32_t MKDEV(uint16_t major, uint16_t minor )
         }
 }
 
-uint32_t MAJOR(uint32_t dev_num)
+uint32_t MAJOR(uint32_t dev_num)       //获取主设备号
 {
     return dev_num >> 16;
 }
-uint32_t MINOR(uint32_t dev_num)
+uint32_t MINOR(uint32_t dev_num)       //获取次设备号
 {
     return dev_num & 0xffff;
 }
 
-void unregister_chrdev(uint32_t major,char* name,...)         
+void unregister_chrdev(uint32_t major,char* name,...)         //注销驱动
 {
     char *buffer;
     va_list args;

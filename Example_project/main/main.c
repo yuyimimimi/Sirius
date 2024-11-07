@@ -21,8 +21,8 @@ module_init(spi_init);
 int __init i2c_1_dev_init(void);
 module_init(i2c_1_dev_init);
 
-// int __init st7789_driver_init(void);
-// module_init(st7789_driver_init);
+int __init st7789_driver_init(void);
+module_init(st7789_driver_init);
 
 void add_i2cdetect_console_app(void);
 AppInit_init(add_i2cdetect_console_app);
@@ -32,6 +32,11 @@ AppInit_init(add_pikapython_console_app);
 
 void install_test();
 AppInit_init(install_test);
+
+
+
+
+
 
 
 

@@ -266,12 +266,5 @@ void __exit i2c_1_dev_exit(void)
 }
 
 
-module_init(i2c_1_dev_init);
-module_exit(i2c_1_dev_exit);
-
-MODULE_LICENSE("GPL-2.0");
-MODULE_AUTHOR("Sirius");
-MODULE_DESCRIPTION("A simple hello world module");
-
 
 

@@ -250,7 +250,6 @@ static file_operations_t spi_fops = {
     .write_p = spi_dev_write,
 };
 
-
 int __init spi_init(void)
 {
     printk(KERN_INFO "Spi driver: spi driver version %s\n", DRIVER_VERSION);
@@ -265,3 +264,12 @@ int __init spi_init(void)
     printk(KERN_INFO "Spi driver: spi driver major number %d\n", spi_major);
     return 0;
 }
+
+void __exit spi_exit(void){}
+
+// module_init(spi_init);
+module_exit(spi_exit);
+
+MODULE_LICENSE("GPL-V2.0");
+MODULE_AUTHOR("Jason");
+MODULE_DESCRIPTION("SPI driver");

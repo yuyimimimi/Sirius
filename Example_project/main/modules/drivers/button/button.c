@@ -117,9 +117,3 @@ static int button0_open(void *p,const char *path, int flags, int mode){
 static int button0_close(void *p,int fd){
     return 0;
 }
-
-module_init(button0_driver_init);
-module_exit(button0_driver_exit);
-MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Sirius");
-MODULE_DESCRIPTION("Button driver");

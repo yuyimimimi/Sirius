@@ -34,13 +34,7 @@
 
 
 
-// typedef struct file_operations {
-//     int (*open)(struct inode *inode, struct file *file);
-//     int (*release)(struct inode *inode, struct file *file);
-//     ssize_t (*read)(struct file *file, char *buf, size_t len, loff_t *offset);
-//     ssize_t (*write)(struct file *file, const char *buf, size_t len, loff_t *offset);
-//     int (*ioctrl)(struct file *file, loff_t offset, int whence);
-// }file_operations_t;
+
 
 
 uint32_t register_chrdev(uint32_t major,char* name,file_operations_t *fops,...);
@@ -48,5 +42,18 @@ void unregister_chrdev(uint32_t major,char* name,...);
 uint32_t MKDEV(uint16_t major, uint16_t minor );
 uint32_t MAJOR(uint32_t dev_num);
 uint32_t MINOR(uint32_t dev_num);
+
+
+
+typedef struct file_operations {
+    int (*open)(struct inode *inode, struct file *file);
+    int (*release)(struct inode *inode, struct file *file);
+    ssize_t (*read)(struct file *file, char *buf, size_t len, loff_t *offset);
+    ssize_t (*write)(struct file *file, const char *buf, size_t len, loff_t *offset);
+    int (*ioctrl)(struct file *file, loff_t offset, int whence);
+};
+
+
+
 
 #endif

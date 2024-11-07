@@ -348,10 +348,10 @@ static inline void tracing_snapshot_alloc(void) { }
 // 	return 0;
 // }
 // static __printf(1, 0) inline int
-ftrace_vprintk(const char *fmt, va_list ap)
-{
-	return 0;
-}
+// ftrace_vprintk(const char *fmt, va_list ap)
+// {
+// 	return 0;
+// }
 static inline void ftrace_dump(enum ftrace_dump_mode oops_dump_mode) { }
 #endif /* CONFIG_TRACING */
 

@@ -28,7 +28,6 @@ open this project in espidf cmd. and type "idf.py menuconfig" to config your pro
 first set your board and flash size. 
 set: Partition Table > Partition Table set to  Custom partition table CSV
 set: Virtual file system > Maximum Number of Virtual Filesystems set to 20
-set:enable :FreeRTOS>Kernel>configUSE_TRACE_FACILITY/configUSE_STATS_FORMATTING_FUNCTIONS/Enable display of xCoreID in vTaskList
 
 if your flash size is lass than 8mb,you need change partition table.
 p_0 table is important, do not change name ,and must use littlefs. you can change size.
@@ -60,8 +59,6 @@ Custom partition CSV file
 
  之后将虚拟文件系统的挂载点(Maximum Number of Virtual Filesystems)设置为20。
 
-还要开启freertos任务查询功能。
-
  然后就可以编译烧录了。烧录后你会发现不断报错，因为缺少必要的资源文件。不过不用担心，多等待一会儿。它会进入recoverymode
 . 在命令行中输入help，你可以看到resetdevice指令。使用它，它会建立基础的文件系统并生成默认的配置文件并重启。
 重启后你会进入普通启动模式。使用shell指令
@@ -74,26 +71,14 @@ cd /etc/boot
 
 移植就完毕了
 
-配置方式:
-
-![image](https://github.com/user-attachments/assets/a18d8879-836b-425c-bb7a-b4826260f37f)
-
-![image](https://github.com/user-attachments/assets/dfb32842-31e0-48e7-a68c-a0d8f6768cf5)
-
-![image](https://github.com/user-attachments/assets/f9c341c1-2339-463b-801c-6b3561da94a3)
-
-![image](https://github.com/user-attachments/assets/44e4951a-7003-47c7-9723-aa0d6f32ea36)
-
-
-
-
 
 /kernel/config 目录下有一些内核配置选项，可以根据自己的需求进行修改,它们是静态配置，类似于kernel.config文件。
 
 关于功能:
 about function
 
-1.如果使用system()函数没有反应，请前往/espidf-v5.2.1(按照你实际安装的版本号)/components/newlib/syscalls.c 注释掉system()函数定义。
+1.如果使用system()没有反应，请前往/espidf-v5.2.1(按照你实际安装的版本号)/components/newlib/syscalls.c 注释掉system()函数定义或者使用_sysyem()代替,但是你需要额外声名。
+
 
 1.if you use system() function,please comment it in /espidf/components/newlib/syscalls.c
 
