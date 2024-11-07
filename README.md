@@ -49,6 +49,7 @@ AppInit_init可用于console程序模块的添加。你可以查看./example_mod
 
 5.示例工程的main目录下有中文英文版的移植指南。它的移植很简单
 
+6.支持部分posix api以及unix系统api。不一定全面
 
 
 
