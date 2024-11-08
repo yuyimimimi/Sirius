@@ -86,6 +86,11 @@ AppInit_init可用于console程序模块的添加。你可以查看./example_mod
 yu3174096586@gmail.com 
 b站:
 Siriusさん
+支持的shell指令列表:
+
+echo   cat   reboot  ls  clear  pwd  cd  mkdir  history  uname  rm
+rmdir  free  kilo  vi  touch  jobs  ps  kill  uptime  stat  sleep  printf  mv
+cp  head  tail  date whoami  i2cdetect  python  help  
 
 更新日志:
 
