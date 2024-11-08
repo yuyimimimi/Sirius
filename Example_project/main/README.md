@@ -41,10 +41,12 @@ path /kernel/config is kernel config file. you can modify it according to your n
 
 注意，要使用espidf5.2.1。其它版本我没有测试过。
 
+使用带espidf插件的vscode在Example_project目录下右键使用vscode打开文件夹。espidf插件会自动识别它。或者在该目录下直接使用idf.py命令行环境
+
+
 示例项目是基于立创实战派开发板的，采用esp32C3 8mbflash .可以直接编译烧录，如果使用其它esp32需要进行一些调整。
 首先需要在espidf中选择芯片型号。由于espidf修改芯片后kconfig会重置，所以需要重新配置。
 
- 
 如果你有psram最好开启它。然后需要配置flash大小。
 
 开启自定义分区表。
