@@ -25,10 +25,7 @@ typedef void (*Add_func_t) (void);
 
 typedef void (*exit_func_t)(void);
 
-#define module_exit(var) \
-    __attribute__((used)) static exit_func_t __exitvar_##var \
-    __attribute__((section(".exit_array"))) = var;
-
+#define module_exit(var) 
 
 #define AppInit_init(var) \
     __attribute__((used)) static Add_func_t __initvar_##var \

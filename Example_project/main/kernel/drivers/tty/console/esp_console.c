@@ -15,6 +15,7 @@
 #include "driver/usb_serial_jtag.h"
 #include "linenoise/linenoise.h"
 #include <linux/vfs/vfs.h>
+#include "stdio.h"
 
 static const char *TAG = "console.repl";
 
@@ -506,8 +507,18 @@ static void esp_console_repl_task(void *args)
         stderr = stdout;
     }
 
-    create_vfs_node_file("/dev/uart/0", "device", 0xffffffff);
-    create_vfs_node_file("/dev/uart/1", "device", 0xffffffff);
+    FILE *f = fopen("/dev/uart/0", "w");
+    if(f != NULL)
+    {
+        create_vfs_node_file("/dev/uart/0", "device", 0xffffffff);
+    }
+    fclose(f);
+    f = fopen("/dev/uart/1", "w");
+    if(f != NULL)
+    {
+        create_vfs_node_file("/dev/uart/1", "device", 0xffffffff);
+    }
+    fclose(f);
 
     /* Disable buffering on stdin of the current task.
      * If the console is ran on a different UART than the default one,
@@ -530,9 +541,9 @@ static void esp_console_repl_task(void *args)
 
     linenoiseSetMaxLineLen(repl_com->max_cmdline_length);
     
-    struct termios oldt, defaultmode,now;
-    tcgetattr(STDIN_FILENO, &oldt);         // 获取当前属性
-    defaultmode = oldt;                     // 复制一份
+    struct termios defaultmode;
+    tcgetattr(STDIN_FILENO, &defaultmode);         // 获取当前属性
+
 
 
     while (repl_com->state == CONSOLE_REPL_STATE_START) { 
@@ -566,9 +577,13 @@ static void esp_console_repl_task(void *args)
         /* linenoise allocates line buffer on the heap, so need to free it */
         linenoiseFree(line);
 
-        tcgetattr(STDIN_FILENO, &now); 
-
         tcsetattr(STDIN_FILENO, TCSANOW, &defaultmode);
+        
+        if(linenoiseIsDumbMode())
+        {
+             linenoiseSetMultiLine(1);            
+        }
+
     }
     ESP_LOGD(TAG, "The End");
     vTaskDelete(NULL);

@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "sirius",
-    "project_version":    "5c5e388-dirty",
+    "project_version":    "986862d-dirty",
     "project_path":       "C:/Users/31740/Documents/GitHub/Sirius/Example_project",
     "idf_path":           "C:/Espressif/frameworks/esp-idf-v5.2.1",
     "build_dir":          "C:/Users/31740/Documents/GitHub/Sirius/Example_project/build",

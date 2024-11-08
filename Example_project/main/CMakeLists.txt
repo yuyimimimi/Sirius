@@ -44,7 +44,7 @@ file(GLOB_RECURSE FS_VFS                   ./kernel/fs/*.c)
 
 
 #系统初始化文件
-file(GLOB_RECURSE init                     ./kernel/init/*.c)
+file(GLOB_RECURSE init                   ./kernel/init/*.c)
 
 file(GLOB_RECURSE GPIO_HAL                 ./kernel/tools/arch/espidf/drivers/gpio/*.c)
 file(GLOB_RECURSE ENV                      ./kernel/tools/env/*.c)                     #环境变量管理

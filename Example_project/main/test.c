@@ -1,26 +1,19 @@
 #include <stdio.h>
 
 
-
-
-int helloworld(int argc, char const *argv[])
+int test_main(int argc, char const *argv[])
 {
-  if(argc > 1)
-  {
-   system("echo Hello World!");    
-  }
-  else
-  {
-   printf("Hello World!\n");    
-  }
-
-
-   return 0;
+    if(argc < 2)
+    {
+        return 0;
+    }
+    system(argv[1]);
+    return 0;
 }
 
 
 #include <app_install.h>
 void install_test()
 {
-    add_console_app("helloworld", helloworld, "test_main");
+    add_console_app("test", test_main, "test_main");
 }

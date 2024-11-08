@@ -12,7 +12,6 @@
 #include <freertos/task.h>
 #include "freertos/FreeRTOS.h"
 #include "env.h"
-#include <linux/kernel.h>
 #include <kernelconfig>
 
 
@@ -26,7 +25,7 @@ static int get_bootdata(){
         startconfig_file = fopen("/etc/boot.sh", "w"); // 创建启动配置文件
         fwrite("0", 1, 1, startconfig_file);
         fclose(startconfig_file);
-        printk("No boot config found, booting in recovery mode.");
+        printf("No boot config found, booting in recovery mode.\n");
         return -1;
     }
     char startconfig;
@@ -38,7 +37,7 @@ static int get_bootdata(){
         startconfig_file = fopen("/etc/boot.sh", "w"); // 创建启动配置文件
         fwrite("0", 1, 1, startconfig_file);
         fclose(startconfig_file);
-        printk("No boot config found, booting in recovery mode.");
+        printf("No boot config found, booting in recovery mode.\n");
         return -1;
     } 
     fread(&startconfig, 1, 1, startconfig_file);
@@ -86,21 +85,14 @@ void _set_memory_size(int size);
 
 
 static void __init normal_mode_init(void){
-    printk("Normal Mode Starting...");
-    init_env();                  
-    printk( KERN_INFO "Init Env Done.");      
-    registry_init();                   
-    printk( KERN_INFO "Init Registry Done.");
+    printf("Normal Mode Starting...\n");
+    init_env();                         
+    registry_init();                    
     init_vfs_registry();                
-    printk( KERN_INFO "Init VFS Registry Done.");
     default_mount_esp_spi_Partition();  
-    printk( KERN_INFO "Mount ESP SPI Partition Done.");
     gpio_subsystem_init();
-    printk( KERN_INFO "Init GPIO Subsystem Done.");
     int_display_system();             
-    printk( KERN_INFO "Init Console Done.");
     init_normal_console();             
-    printk( KERN_INFO "Init Normal Console Done.");
     shell_cmd_init();             
 }
 
@@ -114,11 +106,9 @@ static void __init recovery_mode_init(void){
 }
 
 void __init system_boot(void) {
-    printk("System Booting...");
     _set_memory_size(esp_get_minimum_free_heap_size());
+    printf("Kernel Starting...\n");
     mount_start_partition(boot_partition_name);        // 挂载启动分区必须为little_fs分区
-    printk( KERN_INFO "Mount Start Partition Done.");
-    printk("Kernel Starting...");    
     if(get_boot_mode() == 1){
         Addition_bootdata();             // 增加启动次数,使用reboot指令可以重置启动次数。任何非正常关机都会导致计数增加，超过阈值强制进入recovery模式。
         normal_mode_init();        

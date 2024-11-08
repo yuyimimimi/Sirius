@@ -69,7 +69,9 @@ void console_init_recovery_mode(void *arg)
     repl_config.max_cmdline_length = 1024*16;
     repl_config.history_save_path = "/etc/sonsole.hist.reco";  
     esp_console_register_help_command();                                                          
+    
     ESP_ERROR_CHECK(esp_console_new_repl_uart(&hw_config, &repl_config, &repl));
+
     ESP_ERROR_CHECK(esp_console_start_repl(repl));  
     vTaskDelete(NULL);   
 }
@@ -78,8 +80,6 @@ void init_console_recovery_mode(void)
 {
     xTaskCreate(console_init_recovery_mode, "console_init", 1024*4, NULL, 7 , NULL);  
 }
-
-
 
 static char *printf_data;
 char *print_prompt()
