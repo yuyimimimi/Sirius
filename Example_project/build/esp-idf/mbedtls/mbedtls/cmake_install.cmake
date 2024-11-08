@@ -39,9 +39,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
-  include("C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
-  include("C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
+  include("C:/Users/31740/Desktop/Example_project/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
+  include("C:/Users/31740/Desktop/Example_project/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
+  include("C:/Users/31740/Desktop/Example_project/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
 
 endif()
 

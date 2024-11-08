@@ -7,6 +7,7 @@ file(GLOB_RECURSE DriverS
          ./modules/drivers/*.c  
          ./modules/drivers/button/*.c
          ./modules/drivers/i2c/*.c
+         ./modules/drivers/tty/*.c
          )
 
 
@@ -28,6 +29,8 @@ file(GLOB_RECURSE COMMANDS
     ./tools/shell/src/touch/*.c
     ./tools/shell/src/jobs/*.c
     ./tools/shell/src/kill/*.c
+    ./tools/shell/src/star/*.c
+    ./tools/shell/src/other/*.c   //太多了不想列举
 )
 
 
@@ -74,6 +77,8 @@ file(   GLOB_RECURSE LVGL
         ./libs/demos/*.c )
 
 
+
+
 idf_component_register(    
         SRCS    
                 ${SOURCES} 
@@ -98,6 +103,8 @@ idf_component_register(
                 ${DriverS}
                 ${posix}
                 ${PIKA_PYTHON}
+                ${LVGL}
+
 
 
 
@@ -115,6 +122,8 @@ idf_component_register(
                  "modules/tools/pikapython/pikascript-api"
                  "modules/tools/pikapython/pikascript-core"
                  "modules/tools/pikapython/pikascript-lib/PikaStdLib"   
+                 
+       
 
                  "libs/lvgl"
                  "libs"

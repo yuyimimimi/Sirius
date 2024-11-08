@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/31740/Documents/GitHub/Sirius/Example_project
+# Install script for directory: C:/Users/31740/Desktop/Example_project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/esp-idf/cmake_install.cmake")
+  include("C:/Users/31740/Desktop/Example_project/build/esp-idf/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/31740/Documents/GitHub/Sirius/Example_project/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/31740/Desktop/Example_project/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

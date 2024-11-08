@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/31740/Documents/GitHub/Sirius/Example_project/components/esp_littlefs
+# Install script for directory: C:/Users/31740/Desktop/Example_project/components/esp_littlefs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

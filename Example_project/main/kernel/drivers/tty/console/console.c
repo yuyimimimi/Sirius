@@ -257,3 +257,30 @@ char *get_console_file_prompt(char *file_path)
     }
 }
 
+char *get_file_path(char *file_path)//转换为绝对路径
+{
+    if(file_path == NULL)
+    {
+        return NULL;
+    }
+    
+    char *new_path;
+    if(file_path[0] != '/')
+    {
+        char *new_path = malloc(strlen(file_path) + strlen(console_path) + 2);
+        strcpy(new_path, console_path);
+        new_path[strlen(console_path)] = '/';
+        strcpy(new_path + strlen(console_path) + 1, file_path);
+        new_path[strlen(console_path) + strlen(file_path) + 1] = '\0';
+        return new_path;
+    }
+    else
+    {
+        new_path = malloc(strlen(file_path) + 1);
+        strcpy(new_path, file_path);
+        new_path[strlen(file_path)] = '\0';
+        return new_path;
+    }
+}
+
+    

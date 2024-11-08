@@ -54,7 +54,7 @@
 #include <fcntl.h>
 #include <signal.h>
 #include "esp_console.h"
-#include <lwip/sockets.h>
+
 
 
 

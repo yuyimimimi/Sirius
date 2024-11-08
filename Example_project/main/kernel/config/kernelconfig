@@ -6,4 +6,5 @@
 
 #define boot_partition_name "p_0"           //系统分区名称,会自动挂为/etc 必须是littlefs格式的分区,因为littlesfs带有掉电保护功能而且支持层次化目录结构。
 
-
+#define SIRIUS_VERSION "0.1.2"
+#define CPU_ARCH       "rsic-v"
