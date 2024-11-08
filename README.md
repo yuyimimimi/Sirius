@@ -53,6 +53,7 @@ AppInit_init可用于console程序模块的添加。你可以查看./example_mod
 
 
 最新版本的终端效果：
+
 <img width="621" alt="image" src="https://github.com/user-attachments/assets/21ab0e77-ea94-470d-96e8-b2dc4c12baab">
 
 
@@ -88,11 +89,11 @@ Siriusさん
 
 更新日志:
 
-2024/7/2添加/kernel/config 文件夹
+2024/11/2添加/kernel/config 文件夹
 
-2024/7/2添加system() posix函数支持
+2024/11/2添加system() posix函数支持
 
-2024/7/11更新内核日志系统
+2024/11/7更新内核日志系统
 
 
 
