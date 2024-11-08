@@ -51,6 +51,9 @@ AppInit_init可用于console程序模块的添加。你可以查看./example_mod
 
 6.支持部分posix api以及unix系统api。不一定全面
 
+7.它不会像普通rtos那样轻量，所以esp8266一类是不支持的
+
+
 
 最新版本的终端效果：
 
