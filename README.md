@@ -1,6 +1,7 @@
 # Sirius
 
 感谢你看到这个项目，如果你也想使用类似于嵌入式linux的方式开发你的基于espidf平台的单片机项目。你可以试试它。
+
 如果你更习惯裸机程序，也可以把它当作辅助插件。不强制使用框架开发
 
 示例项目中有移植教程，直接基于示例项目开发就行
@@ -11,7 +12,7 @@
 
 关于项目：
 
-本项目的宗旨是让单片机可以以尽可能贴近嵌入式linux的方式开发单片机。我为它加入了简易的设备树支持，并提供了各种尽可能贴近linux的内核api，此外兼容posix，推荐使用posix规范的标准控制台程序作为用户程序的功能模块并尽可能使用posix api
+本项目的宗旨是让单片机可以以尽可能贴近嵌入式linux的方式开发单片机。我为它加入了简易的设备树支持，并提供了各种尽可能贴近linux的内核api，还兼容posix，推荐使用posix规范的标准的控制台程序作为用户程序的功能模块并尽可能使用posix api
 
 当然，它也同时兼容espidf的api，你可也以轻松移植你原有的裸机项目。
 
@@ -49,7 +50,7 @@ AppInit_init可用于console程序模块的添加。你可以查看./example_mod
 
 5.示例工程的main目录下有中文英文版的移植指南。它的移植很简单
 
-6.支持部分posix api以及unix系统api。不一定全面
+6.支持部分posix api以及unix系统api。
 
 
 
@@ -91,7 +92,9 @@ Siriusさん
 支持的shell指令列表:
 
 echo   cat   reboot  ls  clear  pwd  cd  mkdir  history  uname  rm
+
 rmdir  free  kilo  vi  touch  jobs  ps  kill  uptime  stat  sleep  printf  mv
+
 cp  head  tail  date whoami  i2cdetect  python  help  
 
 更新日志:
