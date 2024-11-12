@@ -103,8 +103,9 @@ kill            uptime         stat           sleep       printf        mv
 
 cp              head           tail           date        whoami        i2cdetect  
 
-python          help  
+python          help           sh             printenv     export       unset
 
+env            dmesg           lv_demo
 更新日志:
 
 2024/11/2添加/kernel/config 文件夹
@@ -113,5 +114,9 @@ python          help
 
 2024/11/7更新内核日志系统
 
+2024/11/12 更新日志系统，移植lvgl库，并加入显示设备管理子系统支持，
+           支持运行线性没有控制流语句的shell脚本(控制流语句还有bug,所以
+           不建议使用)，加入更多指令，修复部分bug。
+           
 
 
