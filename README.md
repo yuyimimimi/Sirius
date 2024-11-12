@@ -103,8 +103,9 @@ kill            uptime         stat           sleep       printf        mv
 
 cp              head           tail           date        whoami        i2cdetect  
 
-python          help  
+python          help           sh             printenv     export       unset
 
+env            dmesg           lv_demo
 更新日志:
 
 2024/11/2添加/kernel/config 文件夹
