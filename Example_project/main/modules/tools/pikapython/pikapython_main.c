@@ -97,6 +97,7 @@ static void pikaMain_init(){
         init_done = 1;
     }
 }
+
 static void pikarun(void *arg);
 
 static int pikapython_main(int argc, char **argv)
@@ -218,6 +219,21 @@ static int pikapython_main(int argc, char **argv)
     }
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

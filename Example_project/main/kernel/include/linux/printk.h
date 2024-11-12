@@ -4,9 +4,9 @@
 #include "esp_log.h"
 #include "raid/xor.h"
 
-#define KERN_INFO   
-#define KERN_WARNING    
-#define KERN_ERR     
-
+#define KERN_INFO    "info",
+#define KERN_WARNING "warning",
+#define KERN_ERR     "error",
+#define KERN_EMERG   "emerg",
    
 #endif

@@ -16,9 +16,9 @@ int registry_init()
     }
     else
     {
-       printk("[REGISTRY]:REGISTRY_PATH is not set, use default path %s", register_path);
+       printk(KERN_WARNING "[REGISTRY]:REGISTRY_PATH is not set, use default path %s", register_path);
        setenv_("REGISTRY_PATH", register_path, 1);
-       printk("[REGISTRY]:please set PATH in /etc/profile");
+       printk(KERN_WARNING "[REGISTRY]:please set PATH in /etc/profile");
     }
     check_path(register_path);
     return 0;

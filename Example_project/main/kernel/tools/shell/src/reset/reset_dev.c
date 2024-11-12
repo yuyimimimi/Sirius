@@ -2,8 +2,8 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string.h>
-void reset_boot_time_count();
-int reset_dev(int argc, char **argv)
+
+int reset_dev(int argc, char *argv[])
 {
     printf("reset device\n");
     printf("this command will reset your device, all settings will be lost\n");
@@ -26,7 +26,7 @@ int reset_dev(int argc, char **argv)
  DTS_PATH       = /etc/boot/dev.dts\n\
 [system_data]\n\
  username       = user\n\
- sysname        = Siriu\n\
+ sysname        = Sirius\n\
  HOME           = /etc\n\
  system_data    = /etc/system/data\n\
  system_home    = /etc/system\n\
@@ -83,7 +83,7 @@ char *bootlogo_data = "\
     fwrite(bootlogo_data, strlen(bootlogo_data), 1, fp3);
     fclose(fp3);
 
-char *system_version_data = "Sirius 0.1.0\n";
+char *system_version_data = "Sirius 0.1.2\n";
 
     FILE *fp4 = fopen("/etc/system/data/system_version.dat", "w");
     if (fp4 == NULL) {
@@ -95,13 +95,13 @@ char *system_version_data = "Sirius 0.1.0\n";
     printf("reset device success!\n");
     sleep(1);
     printf("system will restart after many seconds...");
-    reset_boot_time_count();
-    sleep(1);
+    sleep(5);
     exit(0);
 
     return 0;
     }  
 }
+
 
 #include "app_install.h"
 void dev_reset_app_install()

@@ -2,13 +2,13 @@
  * 
  * 在这里你可以通过注释或修改宏实现对分区的挂载，必须对应分区表文件partitions.csv
  * 
- **/
+**/
 
 
 #define flash_fs 0      //FATFS_SUPPORT  
 #if flash_fs == 1
-//    #define fatfs_mount_path_0         "/bin"
-//    #define fatfs_Partition_name_0      "p_1"
+   // #define fatfs_mount_path_0         "/bin"
+   // #define fatfs_Partition_name_0      "p_1"
    // #define fatfs_mount_path_1       "/etc"
    // #define fatfs_Partition_name_1   "p_2"
    // #define fatfs_mount_path_2       "/usr"
@@ -51,8 +51,8 @@
    // #define esp_littlefs_Partition_name_0     "p_0"
    // #define esp_littlefs_mount_path_1         "/etc"
    // #define esp_littlefs_Partition_name_1     "p_1"
-   #define esp_littlefs_mount_path_2            "/home"
-   #define esp_littlefs_Partition_name_2        "p_2"
+   // #define esp_littlefs_mount_path_2         "/home"
+   // #define esp_littlefs_Partition_name_2     "p_2"
    // #define esp_littlefs_mount_path_3         "/usr"
    // #define esp_littlefs_Partition_name_3     "p_3"
    // #define esp_littlefs_mount_path_4         "/tmp"

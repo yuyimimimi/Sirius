@@ -64,11 +64,16 @@ static int ST7789_CSDC_Init(void)
 
 
 #define ST7789_SPI_TRANSACTION_NUM 10
+
+
+
 static spi_transaction_t user_spi_transaction[ST7789_SPI_TRANSACTION_NUM];
 static uint8_t user_spi_transaction_cnt = 0; //循环队列头指针
 static uint8_t user_spi_transaction_done = 0;//循环队列尾指针
-
 static spi_device_handle_t ST779_spi;
+
+
+
 static void ST7789_SetDC(spi_transaction_t *t){
     uint8_t *cmd = (uint8_t *)t->user;
     if(cmd != NULL)
@@ -147,11 +152,10 @@ void ST7789_SetBackLight(uint16_t bl_britness)
 
 void ST7789_SendCmd(void* cmd_data,int cmd_length)
 {
-    while (user_spi_transaction_cnt+1%ST7789_SPI_TRANSACTION_NUM == user_spi_transaction_done)//如果队列满了，等待空出一个位置
+    while ((user_spi_transaction_cnt+1)%ST7789_SPI_TRANSACTION_NUM == user_spi_transaction_done)//如果队列满了，等待空出一个位置
     {
         udelay(10);
     }
-
 
     uint8_t *cmd = (uint8_t*)cmd_data;
     memset(&user_spi_transaction[user_spi_transaction_cnt], 0, sizeof(spi_transaction_t)); // Zero out the transaction
@@ -176,7 +180,7 @@ void ST7789_SendCmd(void* cmd_data,int cmd_length)
 
 void ST7789_SendData(void* data_d,int cmd_length)
 {
-    while (user_spi_transaction_cnt+1%ST7789_SPI_TRANSACTION_NUM == user_spi_transaction_done)//如果队列满了，等待空出一个位置
+    while ((user_spi_transaction_cnt+1)%ST7789_SPI_TRANSACTION_NUM == user_spi_transaction_done)//如果队列满了，等待空出一个位置
     {
         udelay(10);
     }

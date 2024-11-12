@@ -21,7 +21,7 @@ int __init int_display_system()
     return 0;
 }
 
-void draw_display(int Offset_X, int Offset_Y, int width, int height,uint32_t *buffer) //只支持RGBA8888格式绘图
+void draw_display_888(int Offset_X, int Offset_Y, int width, int height,uint32_t *buffer) //只支持RGBA8888格式绘图
 {   
     display_list_t *list = get_root_node();
     int display_Offset_X;

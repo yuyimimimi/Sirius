@@ -11,6 +11,7 @@ file(GLOB_RECURSE DriverS
          )
 
 
+
 file(GLOB_RECURSE COMMANDS
     ./tools/shell/src/cat/*.c
     ./tools/shell/src/echo/*.c
@@ -32,12 +33,13 @@ file(GLOB_RECURSE COMMANDS
     ./tools/shell/src/star/*.c
     ./tools/shell/src/other/*.c   //太多了不想列举
 )
-
+ 
 
 file(GLOB_RECURSE RSTDEV                   ./tools/dev_reset/*.c)       
 file(GLOB_RECURSE gpio_subsystem           ./kernel/drivers/gpio/*.c)              
 file(GLOB_RECURSE display_farmerwork       ./kernel/drivers/video/src/*.c)         
 file(GLOB_RECURSE ESP_CONSOLE              ./kernel/drivers/tty/console/*.c)
+file(GLOB_RECURSE ESP_CONSOLE              ./kernel/drivers/log/*.c)
 
 
 #文件系统
@@ -69,6 +71,12 @@ file (   GLOB_RECURSE PIKA_PYTHON
         ./modules/tools/pikapython/pikascript-lib/PikaStdLib/*.c )
 
 
+file(GLOB_RECURSE Console_appS
+        ./modules/tools/i2c_tools/*.c
+        ./modules/tools/lvgl/*.c
+        )
+
+
 file(   GLOB_RECURSE LVGL     
         ./libs/src/*.c
         ./libs/lvgl_driver/*.c
@@ -77,6 +85,7 @@ file(   GLOB_RECURSE LVGL
         ./libs/demos/*.c )
 
 
+ 
 
 
 idf_component_register(    
@@ -104,6 +113,7 @@ idf_component_register(
                 ${posix}
                 ${PIKA_PYTHON}
                 ${LVGL}
+                ${Console_appS}
 
 
 
@@ -123,12 +133,19 @@ idf_component_register(
                  "modules/tools/pikapython/pikascript-core"
                  "modules/tools/pikapython/pikascript-lib/PikaStdLib"   
                  
-       
 
+                 "libs/lvgl/demos"
+                 "libs/lvgl/lvgl_driver"
+                 "libs/lvgl/src"   
+                 "libs/lvgl/user_lv_font"
+                 "libs/lvgl/user_lv_img"
                  "libs/lvgl"
+
                  "libs"
 
+
+ 
+                 
+
 )
-
-
 

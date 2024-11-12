@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <console_cop.h>
 
-#define DEFAULT_LINES 10
 
 int tail_command(int argc, char *argv[]) {
     if (argc != 2) {
-        fprintf(stderr, "Usage: tail <file>\n");
+        fprintf(stderr, "Usage: tail <file>  [lines]\n");
         return 1;
     }
 
-    FILE *file = fopen(argv[1], "r");
+    char *path = get_file_path(argv[1]); 
+    
+    FILE *file = fopen(path, "r");
     if (file == NULL) {
         perror("Error opening file");
         return 1;
@@ -28,9 +30,20 @@ int tail_command(int argc, char *argv[]) {
     long offset = 0;
     int count = 0;
     char ch;
+    int lines = 10;
+    
+    if(argc == 2)
+    {
+        lines = atoi(argv[2]);
+        if (lines <= 0) {
+            fprintf(stderr, "Invalid line count\n");
+            fclose(file);
+            return 1;
+        }
+    }
 
     // 从文件末尾向回读取，直到找到所需的行数
-    while (file_size - offset > 0 && count < DEFAULT_LINES) {
+    while (file_size - offset > 0 && count < lines) {
         fseek(file, --file_size, SEEK_SET);
         ch = fgetc(file);
 
@@ -47,5 +60,6 @@ int tail_command(int argc, char *argv[]) {
     }
 
     fclose(file);
+    free(path);
     return 0;
 }

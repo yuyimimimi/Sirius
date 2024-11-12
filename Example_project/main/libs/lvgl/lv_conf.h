@@ -20,7 +20,6 @@
 #include <stdint.h>
 
 
-
 /*====================
    COLOR SETTINGS
  *====================*/
@@ -80,10 +79,10 @@
  *====================*/
 
 /*Default display refresh period. LVG will redraw changed areas with this period time*/
-#define LV_DISP_DEF_REFR_PERIOD 10      /*[ms]*/
+#define LV_DISP_DEF_REFR_PERIOD 8      /*[ms]*/
 
 /*Input device read period in milliseconds*/
-#define LV_INDEV_DEF_READ_PERIOD 16     /*[ms]*/
+#define LV_INDEV_DEF_READ_PERIOD 18     /*[ms]*/
 
 /*Use a custom tick source that tells the elapsed time in milliseconds.   
  *It removes the need to manually update the tick with `lv_tick_inc()`)*/
@@ -754,7 +753,7 @@
     #define LV_DEMO_MUSIC_LANDSCAPE 0
     #define LV_DEMO_MUSIC_ROUND     0
     #define LV_DEMO_MUSIC_LARGE     0
-    #define LV_DEMO_MUSIC_AUTO_PLAY 0
+    #define LV_DEMO_MUSIC_AUTO_PLAY 1
 #endif
 
 /*--END OF LV_CONF_H--*/

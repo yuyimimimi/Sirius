@@ -48,6 +48,34 @@ spi_dev = {
   };
 };
 
+&panel = {
+        compatible = "simple-panel";
+        st7789_panel@1 = {
+                status = "okay";
+                buffer_size = <2048>;
+                width = <240>;
+                height = <320>;
+                offset-x = <0>;
+                offset-y = <0>;
+                pixel-format = <565>;
+        };
+};
+
+&st7789@0 = {
+        status = "okay";
+        compatible = "/spi_dev/spi@0";
+        panel = "/panel/st7789";
+        reg = <0>;
+        spi_max_frequency = <80000000>;
+        rotate = <90>;
+        fps = <60>;
+        reset-gpios = <-1>;
+        dc_gpios = <6>;
+        cs_gpios = <4>;
+        bl_gpios = <2>;
+        debug = <0>;
+};
+
 &button@0 = {
         status = "okey";
         major     =  <240>          //device_number

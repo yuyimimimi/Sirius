@@ -4,7 +4,7 @@
  */
 
  /*Copy this file as "lv_port_disp.c" and set this value to "1" to enable content*/
-#if 0
+#if 1
 
 /*********************
  *      INCLUDES
@@ -12,22 +12,20 @@
 #include "lv_port_disp.h"
 #include "../lvgl.h"
 #include "esp_heap_caps.h"
-#include "include/st7789.h"
-
+#include <video/display.h>
 
 /*********************
  *      DEFINES
  *********************/
 
 #define LV_LCD_HOR (240) // 多少行
-#define LV_LCD_VER (280) // 多少列
+#define LV_LCD_VER (320) // 多少列
 #define LV_H_NUM   (40) // 缓冲区用多少行
-
-
 
 /**********************
  *      TYPEDEFS
  **********************/
+
 
 /**********************
  *  STATIC PROTOTYPES
@@ -90,8 +88,6 @@ void lv_port_disp_init(void)
      
     lv_disp_draw_buf_init(&draw_buf_dsc_1, buf_1, buf_2, LV_LCD_HOR * LV_H_NUM);   /*Initialize the display buffer*/
 
-   
-
     /*-----------------------------------
      * Register the display in LVGL
      *----------------------------------*/
@@ -130,7 +126,6 @@ void lv_port_disp_init(void)
 /*Initialize your display and the required peripherals.*/
 static void disp_init(void)
 {
-
     /*You code here*/
 }
 
@@ -142,14 +137,12 @@ static void disp_init(void)
 
 static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t * color_p)
 {
-    LCD_Fill(area->x1,area->y1,area->x2,area->y2,&(color_p->full));
-
+    draw_display_565(area->x1, area->y1, area->x2-area->x1+1, area->y2-area->y1+1, color_p);
+    
     /*IMPORTANT!!!
      *Inform the graphics library that you are ready with the flushing*/
     lv_disp_flush_ready(disp_drv);
 }
-
-
 
 void spi_disp_flush_ready(void)
 {

@@ -86,7 +86,7 @@ void Draw(int x1, int y1, int width, int height, void *color)
     int lostbytes = size % max_sendpx;
 
     ST7789V_SetLcdAddress(x1,y1,x1 + width - 1,y1 + height - 1);
-
+    
     if(datasendtimes > 0)
     {
         for(int i=0;i<datasendtimes;i++)
@@ -148,31 +148,15 @@ int LCDST7789c_Init()
     printf("ST7789 init success!");    
 
     uint16_t *color = (uint16_t*)malloc(240*sizeof(uint16_t));
-
     for(int j=0;j<240;j++){
-        color[j] = 0xF800;
+        color[j] = 0x0000;
     }
-    for(int i=0;i<100;i++)
-    {
-        Draw(0,i,240,1,color);  
-    }
-
-    for(int j=0;j<240;j++){
-        color[j] = 0x07E0;
-    }
-    for(int i=100;i<210;i++)
-    {
-        Draw(0,i,240,1,color);  
-    }
-
-    for(int j=0;j<240;j++){
-        color[j] = 0x001F;
-    }
-    for(int i=210;i<320;i++)
+    for(int i=0;i<320;i++)
     {
         Draw(0,i,240,1,color);  
     }
     free(color);
+
     return 0;
 }
 

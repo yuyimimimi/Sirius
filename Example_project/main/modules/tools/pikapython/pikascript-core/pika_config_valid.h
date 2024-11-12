@@ -428,7 +428,7 @@ extern "C" {
     #endif
     
     #ifndef PIKA_LINUX_COMPATIBLE
-        #define PIKA_LINUX_COMPATIBLE 0
+        #define PIKA_LINUX_COMPATIBLE 1
     #endif
 
     #ifndef PIKA_LINUX_BASH_ENABLE

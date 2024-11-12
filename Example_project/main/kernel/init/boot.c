@@ -17,7 +17,7 @@
 
 
 int  mount_start_partition(char *paartition_name);
-
+void log_init(void);
 int __init int_display_system(); 
 void __init init_drivers(void);
 static int get_bootdata(){
@@ -56,7 +56,7 @@ static void set_bootdata(int number){
     }
 }
 
-static int boot_limit_count = 9;   //如果连续异常关机次数次超过这个值，则进入recovery模式
+static int boot_limit_count = BOOT_CHECK_LIMIT;   //如果连续异常关机次数次超过这个值，则进入recovery模式
 static void Addition_bootdata(){
     int number = get_bootdata();
     if(number < 0){
@@ -89,6 +89,7 @@ static void __init normal_mode_init(void){
 
     printk(KERN_INFO "Initing env...");
     init_env();                        
+    log_init();                        
     printk(KERN_INFO "env inited.");
     printk(KERN_INFO "Initing VFS...");
     registry_init();                   

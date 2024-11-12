@@ -10,13 +10,17 @@
 #include "sdkconfig.h"
 #include "esp_rom_uart.h"
 #include "esp_console.h"
+#include "linux/errno.h"
 
 
 int __attribute__((weak)) system(const char* str)
 {
     int a = 0;
     int *i =&a;
-    esp_console_run(str,i);
+    int err = esp_console_run(str,i);
+    if(err == 0 )
     return 0;
+    else
+    return -1;
 }
 

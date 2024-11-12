@@ -5,6 +5,6 @@
 #include <linux/module.h>
 void start_console(void);
 void __init __init__(void);
-void app_main(){printf("\n\n\n\n\n\n\n\n\n\n\n");  start_console();}
+void app_main(){ start_console();}
 module_init(__init__);
 #endif

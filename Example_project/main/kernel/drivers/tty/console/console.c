@@ -14,6 +14,8 @@
 #include <linux/vfs/vfs.h>
 #include "env.h"
 #include <kernelconfig>
+#include <linux/kernel.h>
+
 
 static char *console_path;
 static int home_start = 1;
@@ -23,6 +25,55 @@ static void console_init(void *arg);
 char *get_console_path();
 void start_console(){ vTaskDelay(50);home_start = 0;}
 void esp_console_hook_run(char *(*func)());
+
+void run_start_shell_file() //开机启动脚本
+{
+    char *file_path = getenv_("INIT_SCRIPT");
+    if(file_path == NULL)
+    {
+        printf("Error: Please set INIT_SCRIPT in /etc/systemd/start_shell\n");
+        setenv_("INIT_SCRIPT", "/etc/systemd/start_shell\n", 1);
+
+        struct stat st = {0};
+        if (stat("/etc/systemd", &st) == -1)
+        {
+            if (mkdir("/etc/systemd", 0755) == -1) {
+                printf("Error: Unable to create directory /etc/systemd\n");
+                return;
+            }
+        }
+        FILE *fp = fopen("/etc/systemd/start_shell", "w");
+        if (fp != NULL){
+            fclose(fp);
+        }
+        else{
+            // 文件创建失败，输出错误信息
+            printf( "Error: Unable to create startup script /etc/systemd/start_shell\n");
+            return;
+        }
+    }
+    else
+    {
+        FILE *fp = fopen(file_path, "r");
+        if (fp == NULL) {
+        fp = fopen(file_path, "w");
+        if (fp == NULL) {
+            printf("Error: Unable to create startup script %s\n", file_path);
+            return;
+        }
+        fclose(fp);
+        }
+        else{
+        fclose(fp);        
+        }
+        char *cmd = (char*)malloc(256);
+        strcpy(cmd, " sh ");  
+        strcpy(cmd + strlen(cmd), file_path);  
+        system(cmd);
+        free(cmd);
+        free(file_path);
+    }
+}
 
 
 void init_normal_console(void)
@@ -42,7 +93,6 @@ void init_normal_console(void)
         xTaskCreate(console_init, "console_init", 1024*8, NULL, 7 , NULL);        
     }
 }
-
 
 
 void console_init_recovery_mode(void *arg)
@@ -69,9 +119,7 @@ void console_init_recovery_mode(void *arg)
     repl_config.max_cmdline_length = 1024*16;
     repl_config.history_save_path = "/etc/sonsole.hist.reco";  
     esp_console_register_help_command();                                                          
-    
     ESP_ERROR_CHECK(esp_console_new_repl_uart(&hw_config, &repl_config, &repl));
-
     ESP_ERROR_CHECK(esp_console_start_repl(repl));  
     vTaskDelete(NULL);   
 }
@@ -119,13 +167,12 @@ static void console_init(void *arg){
     while (home_start == 1){vTaskDelay(1);}
     printf_data = (char*)malloc(1024);
     esp_console_hook_run(print_prompt);
-
-  
+    
     char *bootlogo;
     FILE *fp ;
     char *file_path = getenv_("BOOTLOGO");
     if(file_path != NULL){
-        printf("\033[2J\033[H\n\n\n");
+        //printf("\033[2J\033[H\n\n\n");
         fp = fopen(file_path, "r");
         if(fp != NULL)
         {
@@ -191,6 +238,9 @@ static void console_init(void *arg){
         ESP_ERROR_CHECK(esp_console_new_repl_uart(&hw_config, &repl_config, &repl));
         ESP_ERROR_CHECK(esp_console_start_repl(repl));
     }    
+
+    run_start_shell_file();
+  
     vTaskDelete(NULL) ;   
 }
 
@@ -257,13 +307,14 @@ char *get_console_file_prompt(char *file_path)
     }
 }
 
+
 char *get_file_path(char *file_path)//转换为绝对路径
 {
     if(file_path == NULL)
     {
         return NULL;
     }
-    
+
     char *new_path;
     if(file_path[0] != '/')
     {
@@ -282,5 +333,3 @@ char *get_file_path(char *file_path)//转换为绝对路径
         return new_path;
     }
 }
-
-    

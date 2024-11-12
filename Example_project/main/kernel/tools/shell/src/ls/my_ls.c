@@ -9,8 +9,25 @@
 #include <sys/stat.h>
 #include "cJSON.h"
 #include <linux/vfs/vfs.h>
+#include "env.h"
 
 #define setTextColor printf
+void print_file_permissions(mode_t mode) {
+    // 打印文件权限
+    printf("%c", (S_ISDIR(mode)) ? 'd' : '-');
+    printf("%c", (mode & S_IRUSR) ? 'r' : '-');
+    printf("%c", (mode & S_IWUSR) ? 'w' : '-');
+    printf("%c", (mode & S_IXUSR) ? 'x' : '-');
+    printf("%c", (mode & S_IRGRP) ? 'r' : '-');
+    printf("%c", (mode & S_IWGRP) ? 'w' : '-');
+    printf("%c", (mode & S_IXGRP) ? 'x' : '-');
+    printf("%c", (mode & S_IROTH) ? 'r' : '-');
+    printf("%c", (mode & S_IWOTH) ? 'w' : '-');
+    printf("%c", (mode & S_IXOTH) ? 'x' : '-');
+}
+
+
+
 
 static char * console_path;            //控制台当前路径
 int ls_main(int arg,char **argv)
@@ -70,38 +87,70 @@ struct dirent *entry;
 DIR *dir = opendir(path_1);
     if(dir != NULL)
     {  
+        struct stat file_stat;
         fs_slect = 1;
-        while ((entry = readdir(dir)) != NULL) {
-            if(cmd_of_l==1)
-             printf("%-5d", entry->d_ino);
 
-                if(entry->d_type == DT_DIR)
+        while ((entry = readdir(dir)) != NULL) {
+            char full_path[1024];
+            snprintf(full_path, sizeof(full_path), "%s/%s", path_1, entry->d_name);
+
+            // 如果是 -l 参数，获取并打印文件的详细信息
+            if (cmd_of_l == 1) {
+                if (stat(full_path, &file_stat) == 0) {
+                
+                    // 打印文件权限
+                    print_file_permissions(file_stat.st_mode);
+                    printf("  ");
+                    printf("%-3d", entry->d_ino);
+                    printf("null   null ");
+                    printf("%8ld   ", file_stat.st_size);
+                    // 打印最后修改时间戳
+                    char time_str[100];
+                    struct tm *tm_info = localtime(&file_stat.st_mtime);
+                    strftime(time_str, sizeof(time_str), "%b   %d   %H:%M", tm_info);
+                    printf("%-16s", time_str);
+                }
+                else 
                 {
-                    setTextColor("\033[36m");
-                    printf(" %-20s", entry->d_name);   
-                    setTextColor("\033[37m"); 
+                    perror("stat error");
+                    continue;
                 }
-                else if (entry->d_type == DT_REG)
+            }
+
+            if (entry->d_type == DT_DIR) {
+                setTextColor("\033[36m");  // 目录名用青色
+                if (cmd_of_l == 1)
                 {
-                    printf(" %-20s", entry->d_name);
+                printf("  %s/", entry->d_name);                   
                 }
-                // else if (entry->d_type == DT_LNK)   //使用esp32c3时，此处会报错，可以直接标注为注释，只会影响颜色显示
-                // {
-                //     setTextColor("\033[36m");  // 青色
-                //     printf(" %-20s", entry->d_name);
-                //     setTextColor("\033[37m"); 
-                // }
-                else{
-                    setTextColor("\033[31m");  // 红色
-                    printf(" %-15s", entry->d_name);
-                    setTextColor("\033[37m"); 
-                }                   
-                if(cmd_of_l == 1){
-                    printf("%-10d\n", entry->d_ino);
+                else
+                printf(" %10s", entry->d_name);
+                setTextColor("\033[37m");  // 恢复默认颜色
+            } else if (entry->d_type == DT_REG) {
+                if (cmd_of_l == 1)
+                {
+                printf("  %s", entry->d_name);  // 普通文件
                 }
+                 else
+                printf(" %10s", entry->d_name);  // 普通文件
+            } else {
+                setTextColor("\033[31m");  // 红色
+                if (cmd_of_l == 1)
+                {
+                printf("  %s", entry->d_name);  // 普通文件
+                }
+                else
+                printf(" %10s", entry->d_name);  // 其他类型的文件
+                setTextColor("\033[37m");  // 恢复默认颜色
+            }
+            if (cmd_of_l == 1) {
+                printf("\n");
+            }
         }
-         if(cmd_of_l!=1)
-         printf("\n");
+        if (cmd_of_l != 1) {
+            printf("\n");
+        }
+
         closedir(dir);
     }
 

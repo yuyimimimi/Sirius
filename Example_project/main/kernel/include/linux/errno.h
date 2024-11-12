@@ -4,9 +4,8 @@
 #include "esp_err.h"
 #include "esp_log.h"
 
-#define pr_err ESP_LOGE
+#define pr_err        ESP_LOGE
 
-#define EXIT_SUCCESS ESP_OK
 #define	EPERM 1		/* Not owner */
 #define	ENOENT 2	/* No such file or directory */
 #define	ESRCH 3		/* No such process */

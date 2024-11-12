@@ -8,6 +8,8 @@ int test_main(int argc, char const *argv[])
         return 0;
     }
     system(argv[1]);
+    printf("test_main\n");
+
     return 0;
 }
 

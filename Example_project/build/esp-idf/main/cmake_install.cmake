@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/31740/Desktop/Example_project/main
+# Install script for directory: C:/Users/31740/Desktop/esp/Sirius0.1.1/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

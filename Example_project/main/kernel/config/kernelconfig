@@ -7,4 +7,12 @@
 #define boot_partition_name "p_0"           //系统分区名称,会自动挂为/etc 必须是littlefs格式的分区,因为littlesfs带有掉电保护功能而且支持层次化目录结构。
 
 #define SIRIUS_VERSION "0.1.2"
-#define CPU_ARCH       "rsic-v"
+#define CPU_ARCH       "rsic-v"             //这个字段未来可能有用
+
+#define MAX_LOG_FILE_SIZE (32* 1024)        //内核日志文件大小
+#define LOG_OUTPUT_TO_UART  1               //内核日志输出到终端
+#define LOG_OUTPUT_TO_FILE  1               //内核日志输出到文件()
+#define LOG_BUFFER_SIZE     1024            //日志缓冲区大小
+
+#define BOOT_CHECK_LIMIT    9               //启动失败重试次数,最大9次
+
