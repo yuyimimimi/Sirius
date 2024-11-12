@@ -14,8 +14,8 @@ module_init(spi_init);
 int __init st7789_driver_init(void);
 module_init(st7789_driver_init);
 
-int __init button0_driver_init(void);
-module_init(button0_driver_init);
+// int __init button0_driver_init(void);
+// module_init(button0_driver_init);
 
 int __init i2c_2_dev_init(void);
 module_init(i2c_2_dev_init);
@@ -39,16 +39,7 @@ void lv_demo_install(void);
 AppInit_init(lv_demo_install);
 
 
-
-
-
-
-
-
-
-
 //espidf中只有rsicv gcc支持module_init初始化宏，如果模块没有被正确链接请注释上方所有部分并使用下面代码
-
 
 // int __init button0_driver_init(void);
 // int __init i2c_2_dev_init(void);

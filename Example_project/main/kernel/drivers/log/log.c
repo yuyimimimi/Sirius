@@ -13,7 +13,6 @@
 #if defined(LOG_OUTPUT_TO_FILE)
 
 static char  *log_file_path;
-
 static char *log_file_path = NULL;
 static struct mutex log_mutex;
 static char *log_buffer = NULL;
@@ -112,10 +111,17 @@ void log_write_buffer(char *msg) {
     log_buffer_index += len;
 }
 
-// 将缓冲区内容写入文件
+int get_boot_mode();           // 将缓冲区内容写入文件
 void log_save() {
-    if (log_file_path == NULL) return;
+
+     if (log_file_path == NULL || get_boot_mode() == 0) {
+            log_buffer_index = 0;
+            return;
+    }
+    
+
     if (log_buffer_index == 0) return; // 如果没有内容，不做任何操作
+
     // 检查日志文件大小
     struct stat st;
     if (stat(log_file_path, &st) == 0 && st.st_size >= MAX_LOG_FILE_SIZE) {
