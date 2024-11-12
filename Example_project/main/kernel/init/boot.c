@@ -110,7 +110,6 @@ static void __init recovery_mode_init(void){
     registry_init();
     init_vfs_registry();
     default_mount_esp_spi_Partition();  
-    int_display_system();   
     recovery_mode_shell_cmd_init();
     init_console_recovery_mode();     
 }
