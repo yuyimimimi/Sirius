@@ -58,6 +58,7 @@ Custom partition CSV file
  p_0会挂载为/etc p_2会挂挂载为/home 。如果不需要/home可以直接删除那一行，不需要修改代码。
 
  之后将虚拟文件系统的挂载点(Maximum Number of Virtual Filesystems)设置为20。
+ 还要开启freertos的调试功能
 
  然后就可以编译烧录了。烧录后你会发现不断报错，因为缺少必要的资源文件。不过不用担心，多等待一会儿。它会进入recoverymode
 . 在命令行中输入help，你可以看到resetdevice指令。使用它，它会建立基础的文件系统并生成默认的配置文件并重启。
