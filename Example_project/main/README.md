@@ -58,15 +58,17 @@ Custom partition CSV file
  p_0会挂载为/etc p_2会挂挂载为/home 。如果不需要/home可以直接删除那一行，不需要修改代码。
 
  之后将虚拟文件系统的挂载点(Maximum Number of Virtual Filesystems)设置为20。
+ 
  还要开启freertos的调试功能
 
  然后就可以编译烧录了。烧录后你会发现不断报错，因为缺少必要的资源文件。不过不用担心，多等待一会儿。它会进入recoverymode
 . 在命令行中输入help，你可以看到resetdevice指令。使用它，它会建立基础的文件系统并生成默认的配置文件并重启。
 重启后你会进入普通启动模式。使用shell指令
 
-cd /etc/boot
+ cd /etc/boot
 
  kilo dev.dts
+
 进入file文件夹找到设备树配置文件，复制粘贴配置信息并按照你的需求进行修改。层次结构不能搞错。(由于串口速率限制以及esp32性能限制。文本编辑器不会很流畅，一次只能复制一小段，有些esp32会出现丢包)
 然后使用reboot指令重启设备。你可以看到设备的启动日志并在/dev目录下找到设备结点。
 
