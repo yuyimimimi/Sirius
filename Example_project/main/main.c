@@ -3,10 +3,7 @@
 #include <linux/init.h>
 #include <linux/module.h>
 
-
-//运行的程序堆栈大小不要超过16kb，如果有更大内存需求请进入/kernel/config/中调整或者另外创建独立的任务
-
-//你可以通过注释掉下面代码来选择你需要的模块模块间高度解耦，只需在main.c中声明需要的模块即可，不需要的模块注释掉即可
+//你可以通过注释掉下面代码来选择你需要的模块，只需在main.c中声明需要的模块即可，不需要的模块注释掉即可
 
 int __init spi_init(void);
 module_init(spi_init);
