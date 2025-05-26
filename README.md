@@ -1,6 +1,6 @@
 本项目由于技术债务过重，已经停止维护
 
-如果你对在单片机上模拟linux内核感兴趣，你可以看看这个项目:https://github.com/yuyimimimi/microkernel
+如果你对在单片机上模拟linux内核感兴趣，你可以看看这个项目[:https://github.com/yuyimimimi/microkernel](https://github.com/yuyimimimi/McLin)
 
 
 感谢你看到这个项目，如果你也想使用类似于嵌入式linux的方式开发你的基于espidf平台的单片机项目。你可以试试它。
